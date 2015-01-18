@@ -7,3 +7,6 @@
     version: euler_integration}
 - git: {local-name: sicktoolbox_wrapper, uri: 'https://github.com/swri-robotics/sicktoolbox_wrapper.git',
     version: euler_integration}
+- git: {local-name: navigation, uri: 'https://github.com/DLu/navigation.git',
+    version: global_planner_orientation}
+
