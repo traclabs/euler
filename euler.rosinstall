@@ -9,5 +9,5 @@
     version: euler_integration}
 - git: {local-name: navigation, uri: 'https://github.com/DLu/navigation.git',
     version: global_planner_orientation}
-- git: {local-name: simple_local_planner, uri: 'https://github.com/DLu/simple_local_planner.git',
+- git: {local-name: simple_local_planner, uri: 'https://github.com//swri-robotics/simple_local_planner.git',
     version: master}
