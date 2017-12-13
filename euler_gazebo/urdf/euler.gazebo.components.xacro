@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<robot 
+	xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find euler_gazebo)/urdf/euler.gazebo.component_macros.xacro"/>
+
+  <xacro:euler prefix=""/>
+  
+  <euler_arm prefix=""/>
+
+
+</robot>
+
+

@@ -1,5 +1,6 @@
 <?xml version="1.0" ?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro">
+<!-- <robot xmlns:xacro="http://ros.org/wiki/xacro"> -->
+<robot	xmlns:xacro="http://www.ros.org/wiki/xacro">
 	<xacro:macro name="motoman_mh5lf" params="prefix">
 		<!-- link list -->
 		<link name="${prefix}base_link">

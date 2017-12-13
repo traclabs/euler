@@ -1,9 +1,18 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- <robot 
+
+    xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+    xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+    xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+    xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
+ -->
   <!-- link xacro -->
   <xacro:macro name="gazebo_link" params="prefix link_name gravity_off static collide">
-    <gazebo reference="${prefix}${link_name}_link">
+    <gazebo reference="${prefix}${link_name}">
       <selfCollide>${collide}</selfCollide>
       <static>${static}</static>
       <turnGravityOff>${gravity_off}</turnGravityOff>
@@ -95,12 +104,12 @@
     <gazebo_joint prefix="${prefix}" joint_name="motoman_joint_b" kd="4" kp="10"/>
     <gazebo_joint prefix="${prefix}" joint_name="motoman_joint_t" kd="4" kp="10"/>
 
-    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_s_joint" reduction="1" tc="1"/>
-    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_l_joint" reduction="1" tc="1"/>
-    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_u_joint" reduction="1" tc="1"/>
-    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_r_joint" reduction="1" tc="1"/>
-    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_b_joint" reduction="1" tc="1"/>
-    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_t_joint" reduction="1" tc="1"/>
+    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_s" reduction="1" tc="1"/>
+    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_l" reduction="1" tc="1"/>
+    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_u" reduction="1" tc="1"/>
+    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_r" reduction="1" tc="1"/>
+    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_b" reduction="1" tc="1"/>
+    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_t" reduction="1" tc="1"/>
 
   </xacro:macro>
 
