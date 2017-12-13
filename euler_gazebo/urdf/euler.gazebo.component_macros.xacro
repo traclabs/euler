@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- link xacro -->
+  <xacro:macro name="gazebo_link" params="prefix link_name gravity_off static collide">
+    <gazebo reference="${prefix}${link_name}_link">
+      <selfCollide>${collide}</selfCollide>
+      <static>${static}</static>
+      <turnGravityOff>${gravity_off}</turnGravityOff>
+   </gazebo>
+  </xacro:macro>
+
+  <!-- joint xacro -->
+  <xacro:macro name="gazebo_joint" params="prefix joint_name kd kp">
+     <gazebo reference="${prefix}${joint_name}">
+        <stopKd value="${kd}"/> 
+        <stopKp value="${kp}"/> 
+     </gazebo>
+  </xacro:macro>
+
+  <!-- transmission xacro -->
+  <xacro:macro name="gazebo_simple_pos_trans" params="prefix joint_name reduction tc">
+     <transmission name="${prefix}${joint_name}_trans">
+       <type>transmission_interface/SimpleTransmission</type>
+       <joint name="${prefix}${joint_name}">
+         <hardwareInterface>PositionJointInterface</hardwareInterface>
+       </joint>
+       <actuator name="${prefix}${joint_name}_motor">
+         <hardwareInterface>PositionJointInterface</hardwareInterface>
+         <mechanicalReduction>${reduction}</mechanicalReduction>
+       </actuator>
+       <motorTorqueConstant>${tc}</motorTorqueConstant>
+     </transmission>
+  </xacro:macro>
+
+  <xacro:macro name="gazebo_simple_trans" params="prefix joint_name reduction tc">
+     <transmission name="${prefix}${joint_name}_trans">
+       <type>transmission_interface/SimpleTransmission</type>
+       <joint name="${prefix}${joint_name}_joint">
+         <hardwareInterface>EffortJointInterface</hardwareInterface>
+       </joint>
+       <actuator name="${prefix}${joint_name}_motor">
+         <hardwareInterface>EffortJointInterface</hardwareInterface>
+         <mechanicalReduction>${reduction}</mechanicalReduction>
+       </actuator>
+       <motorTorqueConstant>${tc}</motorTorqueConstant>
+     </transmission>     
+  </xacro:macro>
+
+  <xacro:macro name="gazebo_dif_drive_trans" params="prefix joint_name reduction tc">
+     <transmission name="${prefix}${joint_name}_trans">
+       <type>transmission_interface/DifferentialTransmission</type>
+       <joint name="${prefix}${joint_name}_joint">
+         <hardwareInterface>VelocityJointInterface</hardwareInterface>
+       </joint>
+       <actuator name="${prefix}${joint_name}_motor">
+         <hardwareInterface>VelocityJointInterface</hardwareInterface>
+         <mechanicalReduction>${reduction}</mechanicalReduction>
+       </actuator>
+       <motorTorqueConstant>${tc}</motorTorqueConstant>
+     </transmission>
+  </xacro:macro>
+
+  <!-- euler base xacro -->
+  <xacro:macro name="euler_base" params="prefix side">
+    
+
+    <gazebo_joint prefix="${prefix}" joint_name="vetex_${side}_front_wheel_joint" kd="4" kp="10"/>
+    <gazebo_joint prefix="${prefix}" joint_name="vetex_${side}_rear_wheel_joint" kd="4" kp="10"/>
+
+<!--     <gazebo_dif_drive_trans prefix="${robot_name}/${side}" joint_name="wheel" reduction="1" tc="1"/>
+ -->
+
+    <gazebo_dif_drive_trans prefix="${prefix}" joint_name="vetex_${side}_front_wheel" reduction="1" tc="1"/>
+    <gazebo_dif_drive_trans prefix="${prefix}" joint_name="vetex_${side}_rear_wheel"  reduction="1" tc="1"/>
+ 
+  
+  </xacro:macro>
+
+
+  <!-- tracbot arm xacro -->
+  <xacro:macro name="euler_arm" params="prefix">
+
+    <gazebo_link prefix="${prefix}" link_name="motoman_link_s" collide="true" static="true" gravity_off="true"/>
+    <gazebo_link prefix="${prefix}" link_name="motoman_link_l" collide="true" static="true" gravity_off="true"/>
+    <gazebo_link prefix="${prefix}" link_name="motoman_link_u" collide="true" static="true" gravity_off="true"/>
+    <gazebo_link prefix="${prefix}" link_name="motoman_link_r" collide="true" static="true" gravity_off="true"/>
+    <gazebo_link prefix="${prefix}" link_name="motoman_link_b" collide="true" static="true" gravity_off="true"/>
+    <gazebo_link prefix="${prefix}" link_name="motoman_link_t" collide="true" static="true" gravity_off="true"/>
+  
+    <gazebo_joint prefix="${prefix}" joint_name="motoman_joint_s" kd="4" kp="10"/>
+    <gazebo_joint prefix="${prefix}" joint_name="motoman_joint_l" kd="4" kp="10"/>
+    <gazebo_joint prefix="${prefix}" joint_name="motoman_joint_u" kd="4" kp="10"/>
+    <gazebo_joint prefix="${prefix}" joint_name="motoman_joint_r" kd="4" kp="10"/>
+    <gazebo_joint prefix="${prefix}" joint_name="motoman_joint_b" kd="4" kp="10"/>
+    <gazebo_joint prefix="${prefix}" joint_name="motoman_joint_t" kd="4" kp="10"/>
+
+    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_s_joint" reduction="1" tc="1"/>
+    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_l_joint" reduction="1" tc="1"/>
+    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_u_joint" reduction="1" tc="1"/>
+    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_r_joint" reduction="1" tc="1"/>
+    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_b_joint" reduction="1" tc="1"/>
+    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_t_joint" reduction="1" tc="1"/>
+
+  </xacro:macro>
+
+  <!-- euler kinect xacro -->
+  <!-- <xacro:macro name="kinect_gazebo" params="prefix"/> -->
+
+</robot>
+
+

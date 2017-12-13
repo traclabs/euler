@@ -4,7 +4,7 @@
 
 
 <xacro:macro name="asus_xtion_pro" params="sensor_name off_x off_y off_z off_rr off_rp off_ry">
-  <property name="M_PI" value="3.14159"/>
+  <xacro:property name="M_PI" value="3.14159"/>
 
   <link name="${sensor_name}_bodycenter">
     <visual>

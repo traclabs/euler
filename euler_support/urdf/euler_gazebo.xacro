@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<robot name="euler" xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  <xacro:include filename="$(find euler_support)/urdf/euler_macro.xacro" />
+  <xacro:euler prefix=""/>
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>$(arg robot_namespace)</robotNamespace>
+    <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    <!--<robotParam>robot_description</robotParam>-->
+  </plugin>
+  </gazebo>
+  
+</robot>

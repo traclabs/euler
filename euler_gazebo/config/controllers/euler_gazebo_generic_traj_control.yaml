@@ -1,0 +1,87 @@
+euler:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  mobile_base_controller:
+    type: "diff_drive_controller/DiffDriveController"
+    left_wheel: ['vetex_left_front_wheel_joint', 'vetex_left_rear_wheel_joint']
+    right_wheel: ['vetex_right_front_wheel_joint', 'vetex_right_rear_wheel_joint']
+    publish_rate: 50
+    pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 0.03]
+    twist_covariance_diagonal: [0.001, 0.001, 0.001, 1000000.0, 1000000.0, 0.03]
+    cmd_vel_timeout: 0.25
+
+    # Odometry fused with IMU is published by robot_localization, so
+    # no need to publish a TF based on encoders alone.
+    enable_odom_tf: true
+    base_frame_id: vetex_base_footprint 
+
+    # Wheel separation and radius multipliers
+    wheel_separation_multiplier: 1.0 # default: 1.0
+    wheel_radius_multiplier    : 1.0 # default: 1.0
+
+    # Velocity and acceleration limits
+    # Whenever a min_* is unspecified, default to -max_*
+    linear:
+      x:
+        has_velocity_limits    : true
+        max_velocity           : 2.0   # m/s
+        has_acceleration_limits: true
+        max_acceleration       : 20.0   # m/s^2
+    angular:
+      z:
+        has_velocity_limits    : true
+        max_velocity           : 4.0   # rad/s
+        has_acceleration_limits: true
+        max_acceleration       : 25.0   # rad/s^2
+
+  # Joint Trajectory Controller
+  arm_trajectory_controller:
+    type: "position_controllers/JointTrajectoryController"
+    joints:
+      - motoman_joint_s
+      - motoman_joint_l
+      - motoman_joint_u
+      - motoman_joint_r
+      - motoman_joint_b
+      - motoman_joint_t
+    constraints:
+      stopped_velocity_tolerance: 0.001
+      motoman_joint_s:
+        goal: 0.0001
+        trajectory: 0.2
+      motoman_joint_l:
+        goal: 0.0001
+        trajectory: 0.2
+      motoman_joint_u:
+        goal: 0.0001
+        trajectory: 0.2
+      motoman_joint_r:
+        goal: 0.0001
+        trajectory: 0.2
+      motoman_joint_b:
+        goal: 0.0001
+        trajectory: 0.2
+      motoman_joint_t:
+        goal: 0.0001
+        trajectory: 0.2
+
+  # Position Group controller
+  arm_position_controller:
+    type: "position_controllers/JointGroupPositionController"
+    joints:
+      - motoman_joint_s
+      - motoman_joint_l
+      - motoman_joint_u
+      - motoman_joint_r
+      - motoman_joint_b
+      - motoman_joint_t
+
+
+
+
+
+
+
