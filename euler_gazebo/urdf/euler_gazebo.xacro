@@ -6,4 +6,90 @@
   <xacro:include filename="$(find euler_gazebo)/urdf/euler.gazebo.components.xacro"/> 
   <xacro:include filename="$(find euler_gazebo)/urdf/euler.gazebo.controllers.xacro"/>
 
+
+  <gazebo reference="frame_left">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+
+  <gazebo reference="frame_right">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+
+  <gazebo reference="frame_top">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="vetex_base_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="motoman_base_link">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+
+  <gazebo reference="motoman_link_s">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+
+  <gazebo reference="motoman_link_l">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+
+  <gazebo reference="motoman_link_r">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+
+  <gazebo reference="motoman_link_u">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+
+  <gazebo reference="motoman_link_b">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+
+  <gazebo reference="eef_body">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="sick_nav350">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+
+  <gazebo reference="front_sick_s300">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+
+  <gazebo reference="rear_sick_s300">
+    <material>Gazebo/Yellow</material>
+  </gazebo>
+
+  <gazebo reference="vetex_right_rear_wheel">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+
+  <gazebo reference="vetex_right_front_wheel">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+
+  <gazebo reference="vetex_left_rear_wheel">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+
+  <gazebo reference="vetex_left_front_wheel">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
 </robot>

@@ -6,10 +6,10 @@
 	<xacro:include filename="$(find euler_support)/urdf/asus_xtion_pro.xacro" />
 	<xacro:include filename="$(find euler_support)/urdf/eef_macro.xacro" />
 
-	<xacro:macro name="euler" params="prefix">
+	<xacro:macro name="euler" params="prefix"> 
 	
 	<xacro:vetex prefix="vetex_" />
-	<xacro:motoman_mh5lf prefix="motoman_" />
+	<xacro:motoman_mh5lf prefix="motoman_" /> 
 	<!-- <xacro:asus_xtion_pro sensor_name="" off_x="0.461" off_y="0" off_z="2.103" off_rr="1.5708" off_rp="1.8849" off_ry="0"/>        -->
 	<xacro:eef prefix=""/>         
 	
@@ -33,9 +33,9 @@
 			</geometry>
 		</collision>
 		<inertial>
-      <mass value="0.1"/>
+      <mass value="1.0"/>
       <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
 	</link>
 	<link name="${prefix}frame_right">
@@ -55,9 +55,9 @@
 			</geometry>
 		</collision>
 		<inertial>
-      <mass value="0.1"/>
+      <mass value="1.0"/>
       <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
 	</link>
 	<link name="${prefix}frame_top">
@@ -77,9 +77,9 @@
 			</geometry>
 		</collision>
 		<inertial>
-      <mass value="0.1"/>
+      <mass value="1.0"/>
       <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
     </inertial>
 	</link> 
 	<link name="${prefix}sick_nav350">
@@ -97,9 +97,9 @@
 			</geometry>
 		</collision>
 		<inertial>
-      <mass value="0.1"/>
+      <mass value="0.3"/>
       <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
 	</link>
 	<link name="${prefix}front_sick_s300">
@@ -119,7 +119,7 @@
 		<inertial>
       <mass value="0.1"/>
       <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
 	</link>
 	<link name="${prefix}rear_sick_s300">
@@ -139,7 +139,7 @@
 		<inertial>
       <mass value="0.1"/>
       <origin xyz="0 0 0"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
 	</link> 
 	<joint name="${prefix}frame_left" type="fixed" >
