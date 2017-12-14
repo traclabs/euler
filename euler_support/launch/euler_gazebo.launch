@@ -62,9 +62,15 @@
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find euler_support)/config/euler_craftsman.rviz" required="true" />
 
+  <node name="model_states_converter" pkg="tracbot_gazebo" type="model_states_converter" >
+   <param name="model_name" value="euler"/>
+   <param name="tf_base_frame" value="base_link"/>
+   <param name="tf_publish_frame" value="perfect_odom"/>   
+   <param name="tf_odom_frame" value="odom"/>
+  </node>
 
   <!-- <node pkg="tf" type="static_transform_publisher" name="bl_broadcaster" args="0 0 0 0 0 0 world base_link 100" /> -->
-<!--   <node pkg="tf" type="static_transform_publisher" name="bl_broadcaster" args="0 0 0 0 0 0 base_link odom 100" /> -->
+  <node pkg="tf" type="static_transform_publisher" name="bl_broadcaster" args="0 0 0 0 0 0 map perfect_odom 100" /> -->
   <!-- <node pkg="tf" type="static_transform_publisher" name="bf_broadcaster" args="0 0 0 0 0 0 vetex_base_footprint base_footprint 100" /> -->
   
   <!-- reference frame broadcaster for moveit -->
