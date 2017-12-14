@@ -49,8 +49,8 @@
   <rosparam file="$(find euler_gazebo)/config/controllers/euler_gazebo_generic_traj_control.yaml" command="load"/>
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" ns="euler" args=" mobile_base_controller arm_trajectory_controller joint_state_controller" />
-
+    output="screen" ns="euler" args=" mobile_base_controller  joint_state_controller" />
+<!-- arm trajectory  controller -->
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 
@@ -63,8 +63,8 @@
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find euler_support)/config/euler_craftsman.rviz" required="true" />
 
 
-  <node pkg="tf" type="static_transform_publisher" name="world_broadcaster" args="0 0 0 0 0 0 base_link odom 100" />
-  
+<!--  <node pkg="tf" type="static_transform_publisher" name="world_broadcaster" args="0 0 0 0 0 0 base_link odom 100" />
+ --> 
   <!-- reference frame broadcaster for moveit -->
   <!-- <node pkg="tf" type="static_transform_publisher" name="odom_broadcaster" args="0 0 0 0 0 0 map perfect_odom 100" />  -->
 
