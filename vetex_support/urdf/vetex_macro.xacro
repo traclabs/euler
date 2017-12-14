@@ -26,15 +26,17 @@
     <link name="${prefix}left_front_wheel">
       <visual>
         <geometry>
-          <cylinder length="0.2" radius="0.2"/>
-          <!-- <mesh filename="package://vetex_support/meshes/visual/left_front_wheel.stl" /> -->
+          <!--<cylinder length="0.2" radius="0.2"/>-->
+          <mesh filename="package://vetex_support/meshes/visual/left_front_wheel.stl" />
         </geometry>
-        <material name="euler_gray"/>
+        <material name="euler_black">
+          <color rgba="0.01 0.01 0.01 1" />
+        </material>
       </visual>
       <collision>
         <geometry>
           <cylinder length="0.2" radius="0.2"/>
-          <!-- <mesh filename="package://vetex_support/meshes/collision/left_front_wheel.stl" /> -->
+          <!--<mesh filename="package://vetex_support/meshes/collision/left_front_wheel.stl" /> -->
         </geometry>
       </collision>
       <inertial>
@@ -46,10 +48,10 @@
     <link name="${prefix}left_rear_wheel">
       <visual>
         <geometry>
-          <cylinder length="0.2" radius="0.2"/>
-          <!-- <mesh filename="package://vetex_support/meshes/visual/left_rear_wheel.stl" /> -->
+          <!--<cylinder length="0.2" radius="0.2"/>-->
+          <mesh filename="package://vetex_support/meshes/visual/left_rear_wheel.stl" />
         </geometry>
-        <material name="euler_gray"/>
+        <material name="euler_black"/>
       </visual>
       <collision>
         <geometry>
@@ -67,10 +69,10 @@
       <visual>
         <origin rpy="3.1415 0 0" />
         <geometry>
-          <cylinder length="0.2" radius="0.2"/>
-          <!-- <mesh filename="package://vetex_support/meshes/visual/right_rear_wheel.stl" /> -->
+          <!--<cylinder length="0.2" radius="0.2"/>-->
+          <mesh filename="package://vetex_support/meshes/visual/right_rear_wheel.stl" />
         </geometry>
-        <material name="euler_gray"/>
+        <material name="euler_black"/>
         </visual>
       <collision>
         <origin rpy="3.1415 0 0" />
@@ -89,10 +91,10 @@
       <visual>
         <origin rpy="3.1415 0 0" />
         <geometry>
-          <cylinder length="0.2" radius="0.2"/>
-          <!-- <mesh filename="package://vetex_support/meshes/visual/right_front_wheel.stl" /> -->
+          <!--<cylinder length="0.2" radius="0.2"/>-->
+          <mesh filename="package://vetex_support/meshes/visual/right_front_wheel.stl" />
         </geometry>
-        <material name="euler_gray"/>
+        <material name="euler_black"/>
       </visual>
       <collision>
         <origin rpy="3.1415 0 0" />    

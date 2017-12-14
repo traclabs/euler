@@ -45,6 +45,11 @@
   </gazebo>
 
 
+  <gazebo reference="motoman_link_u">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+
   <gazebo reference="motoman_link_b">
     <material>Gazebo/Blue</material>
   </gazebo>
