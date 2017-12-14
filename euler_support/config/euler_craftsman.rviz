@@ -215,6 +215,38 @@ Visualization Manager:
       Show Visual Aids: false
       Update Topic: /euler_interactive_controls_server/update
       Value: true
+    - Class: rviz/InteractiveMarkers
+      Enable Transparency: true
+      Enabled: true
+      Name: InteractiveMarkers
+      Show Axes: false
+      Show Descriptions: true
+      Show Visual Aids: false
+      Update Topic: /nav_server/update
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
+      Enabled: true
+      Head Diameter: 0.300000012
+      Head Length: 0.200000003
+      Length: 0.300000012
+      Line Style: Lines
+      Line Width: 0.0299999993
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.0299999993
+      Shaft Diameter: 0.100000001
+      Shaft Length: 0.100000001
+      Topic: /navigation_path
+      Unreliable: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -247,6 +279,7 @@ Visualization Manager:
         Z: 0.63680774
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
+      Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
       Pitch: 0.285397291
