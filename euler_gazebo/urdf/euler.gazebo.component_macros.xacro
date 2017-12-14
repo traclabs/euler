@@ -73,21 +73,16 @@
   <!-- euler base xacro -->
   <xacro:macro name="euler_base" params="prefix side">
     
-
     <gazebo_joint prefix="${prefix}" joint_name="vetex_${side}_front_wheel_joint" kd="4" kp="10"/>
     <gazebo_joint prefix="${prefix}" joint_name="vetex_${side}_rear_wheel_joint" kd="4" kp="10"/>
 
-<!--     <gazebo_dif_drive_trans prefix="${robot_name}/${side}" joint_name="wheel" reduction="1" tc="1"/>
- -->
-
     <gazebo_dif_drive_trans prefix="${prefix}" joint_name="vetex_${side}_front_wheel" reduction="1" tc="1"/>
     <gazebo_dif_drive_trans prefix="${prefix}" joint_name="vetex_${side}_rear_wheel"  reduction="1" tc="1"/>
- 
   
   </xacro:macro>
 
 
-  <!-- tracbot arm xacro -->
+  <!-- euler arm xacro -->
   <xacro:macro name="euler_arm" params="prefix">
 
     <gazebo_link prefix="${prefix}" link_name="motoman_link_s" collide="true" static="true" gravity_off="true"/>

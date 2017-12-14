@@ -59,19 +59,6 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        _bodycenter:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        _depth_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        _rgb_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         base_link:
           Alpha: 1
           Show Axes: false
@@ -206,142 +193,18 @@ Visualization Manager:
     - Alpha: 0.400000006
       Class: rviz/RobotModel
       Collision Enabled: false
-      Enabled: true
+      Enabled: false
       Links:
         All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        _bodycenter:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        _depth_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        _rgb_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        eef_base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        eef_body:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        frame_left:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        frame_right:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        frame_top:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_sick_s300:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        motoman_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        motoman_link_b:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        motoman_link_l:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        motoman_link_r:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        motoman_link_s:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        motoman_link_t:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        motoman_link_u:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rear_sick_s300:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        sick_nav350:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        tcp:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        vetex_base_footprint:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        vetex_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        vetex_left_front_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        vetex_left_rear_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        vetex_right_front_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        vetex_right_rear_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Name: Planner
       Robot Description: robot_description
       TF Prefix: planner
       Update Interval: 0
-      Value: true
+      Value: false
       Visual Enabled: true
     - Class: rviz/InteractiveMarkers
       Enable Transparency: true
@@ -355,7 +218,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Fixed Frame: odom
     Frame Rate: 30
   Name: root
   Tools:
@@ -372,7 +235,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 5.99695396
+      Distance: 7.52257919
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -386,10 +249,10 @@ Visualization Manager:
       Focal Shape Size: 0.0500000007
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.240398005
+      Pitch: 0.285397291
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.670399249
+      Yaw: 0.625399828
     Saved: ~
 Window Geometry:
   Displays:

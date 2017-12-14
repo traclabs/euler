@@ -10,11 +10,12 @@
 	
 	<xacro:vetex prefix="vetex_" />
 	<xacro:motoman_mh5lf prefix="motoman_" />
-	<xacro:asus_xtion_pro sensor_name="" off_x="0.461" off_y="0" off_z="2.103" off_rr="1.5708" off_rp="1.8849" off_ry="0"/>       
+	<!-- <xacro:asus_xtion_pro sensor_name="" off_x="0.461" off_y="0" off_z="2.103" off_rr="1.5708" off_rp="1.8849" off_ry="0"/>        -->
 	<xacro:eef prefix=""/>         
 	
 	<!--link list -->
-	<link name="${prefix}base_link"> </link>
+	<link name="${prefix}base_link"> 
+	</link>
 	<link name="${prefix}frame_left">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
@@ -31,6 +32,11 @@
 				<mesh filename="package://euler_support/meshes/collision/frame_left.stl" />
 			</geometry>
 		</collision>
+		<inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
 	</link>
 	<link name="${prefix}frame_right">
 		<visual>
@@ -48,6 +54,11 @@
 				<mesh filename="package://euler_support/meshes/collision/frame_right.stl" />
 			</geometry>
 		</collision>
+		<inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
 	</link>
 	<link name="${prefix}frame_top">
 		<visual>
@@ -65,6 +76,11 @@
 				<mesh filename="package://euler_support/meshes/collision/frame_top.stl" />
 			</geometry>
 		</collision>
+		<inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
 	</link> 
 	<link name="${prefix}sick_nav350">
 		<visual>
@@ -80,6 +96,11 @@
 				<mesh filename="package://euler_support/meshes/collision/sick_nav350.stl" />
 			</geometry>
 		</collision>
+		<inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
 	</link>
 	<link name="${prefix}front_sick_s300">
 		<visual>
@@ -95,6 +116,11 @@
 				<mesh filename="package://euler_support/meshes/collision/sick_s300_mounting_assy.stl" />
 			</geometry>
 		</collision>
+		<inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
 	</link>
 	<link name="${prefix}rear_sick_s300">
 		<visual>
@@ -110,6 +136,11 @@
 				<mesh filename="package://euler_support/meshes/collision/sick_s300_mounting_assy.stl" />
 			</geometry>
 		</collision>
+		<inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
 	</link> 
 	<joint name="${prefix}frame_left" type="fixed" >
 		<parent link="${prefix}base_link" />
