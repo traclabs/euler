@@ -34,7 +34,7 @@
         </material>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="1.5708 0 0" />
+        <origin xyz="0 -0.10 0" rpy="1.5708 0 0" />
         <geometry>
           <cylinder length="0.2" radius="0.2"/>
           <!--<mesh filename="package://vetex_support/meshes/collision/left_front_wheel.stl" /> -->
@@ -43,7 +43,7 @@
       <inertial>
         <mass value="5.8517"/>
         <origin xyz="0 0 0"/>
-        <inertia ixx="0.0501" ixy="0.0" ixz="0.0" iyy="0.0501" iyz="0.0" izz="0.0501"/>
+        <inertia ixx="0.02467" ixy="0.0" ixz="0.0" iyy="0.04411" iyz="0.0" izz="0.02467"/>
       </inertial>  
     </link>                
     <link name="${prefix}left_rear_wheel">
@@ -55,7 +55,7 @@
         <material name="euler_black"/>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="1.5708 0 0" />
+        <origin xyz="0 -0.10 0" rpy="1.5708 0 0" />
         <geometry>
           <cylinder length="0.2" radius="0.2"/>
           <!-- <mesh filename="package://vetex_support/meshes/collision/left_rear_wheel.stl" /> -->
@@ -64,7 +64,7 @@
       <inertial>
         <mass value="5.8517"/>
         <origin xyz="0 0 0"/>
-        <inertia ixx="0.0501" ixy="0.0" ixz="0.0" iyy="0.0501" iyz="0.0" izz="0.0501"/>
+        <inertia ixx="0.02467" ixy="0.0" ixz="0.0" iyy="0.04411" iyz="0.0" izz="0.02467"/>
       </inertial>
     </link>
     <link name="${prefix}right_rear_wheel">
@@ -77,7 +77,7 @@
         <material name="euler_black"/>
         </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="1.5708 0 0" />
+        <origin xyz="0 0.10 0" rpy="1.5708 0 0" />
         <!--<origin rpy="3.1415 0 0" />-->
         <geometry>
           <cylinder length="0.2" radius="0.2"/>
@@ -87,7 +87,7 @@
       <inertial>
         <mass value="5.8517"/>
         <origin xyz="0 0 0"/>
-        <inertia ixx="0.0501" ixy="0.0" ixz="0.0" iyy="0.0501" iyz="0.0" izz="0.0501"/>
+        <inertia ixx="0.02467" ixy="0.0" ixz="0.0" iyy="0.04411" iyz="0.0" izz="0.02467"/>
       </inertial>  
     </link>
     <link name="${prefix}right_front_wheel">
@@ -100,7 +100,7 @@
         <material name="euler_black"/>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="1.5708 0 0" />
+        <origin xyz="0 0.10 0" rpy="1.5708 0 0" />
         <!--<origin rpy="3.1415 0 0" />-->    
         <geometry> 
           <cylinder length="0.2" radius="0.2"/>
@@ -110,7 +110,7 @@
       <inertial>
         <mass value="5.8517"/>
         <origin xyz="0 0 0"/>
-        <inertia ixx="0.0501" ixy="0.0" ixz="0.0" iyy="0.0501" iyz="0.0" izz="0.0501"/>
+        <inertia ixx="0.02467" ixy="0.0" ixz="0.0" iyy="0.04411" iyz="0.0" izz="0.02467"/>
       </inertial>
     </link>
     <!-- end of link list -->

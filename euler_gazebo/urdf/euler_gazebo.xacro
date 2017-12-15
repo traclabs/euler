@@ -75,21 +75,37 @@
 
   <gazebo reference="vetex_right_rear_wheel">
     <material>Gazebo/Black</material>
+    <mu1 value="1.0" />
+    <mu2 value="1.0" />
+    <kp value="10000000.0" />
+    <kd value="1.0" />
   </gazebo>
 
 
   <gazebo reference="vetex_right_front_wheel">
     <material>Gazebo/Black</material>
+    <mu1 value="1.0" />
+    <mu2 value="1.0" />
+    <kp value="10000000.0" />
+    <kd value="1.0" />
   </gazebo>
 
 
   <gazebo reference="vetex_left_rear_wheel">
     <material>Gazebo/Black</material>
+    <mu1 value="1.0" />
+    <mu2 value="1.0" />
+    <kp value="10000000.0" />
+    <kd value="1.0" />
   </gazebo>
 
 
   <gazebo reference="vetex_left_front_wheel">
     <material>Gazebo/Black</material>
+    <mu1 value="1.0" />
+    <mu2 value="1.0" />
+    <kp value="10000000.0" />
+    <kd value="1.0" />
   </gazebo>
 
 </robot>
