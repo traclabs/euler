@@ -18,11 +18,14 @@ find_package(catkin REQUIRED COMPONENTS
   gazebo_msgs
   nav_msgs
   tf
+  pluginlib
 )
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
-find_package( gazebo REQUIRED )
+find_package(xacro REQUIRED)
+find_package(gazebo REQUIRED)
+
 include_directories( ${GAZEBO_INCLUDE_DIRS} )
 link_directories( ${GAZEBO_LIBRARY_DIRS} )
 link_directories( /opt/ros/kinetic/lib )
@@ -50,10 +53,10 @@ include_directories( ${OGRE_INCLUDE_DIRS}/Paging )
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  INCLUDE_DIRS #include
-#  LIBRARIES euler_gazebo
-#  CATKIN_DEPENDS control_msgs gazebo_ros joint_trajectory_controller roscpp rospy sensor_msgs std_msgs trajectory_msgs
-#  DEPENDS system_lib
+  INCLUDE_DIRS include
+  LIBRARIES euler_path_follower
+  CATKIN_DEPENDS control_msgs gazebo_ros joint_trajectory_controller roscpp rospy sensor_msgs std_msgs trajectory_msgs
+  DEPENDS gazebo
 )
 
 ###########
@@ -64,10 +67,12 @@ catkin_package(
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(
-  .
   include 
   ${catkin_INCLUDE_DIRS}
+  ${GAZEBO_INCLUDE_DIRS}
 )
+
+link_directories(${GAZEBO_LIBRARY_DIRS})
 
 # add_executable(model_states_converter src/model_states_to_tf_and_odom.cpp)
 # target_link_libraries(model_states_converter ${catkin_LIBRARIES})
@@ -80,3 +85,10 @@ include_directories(
 
 # add_library( fixed_ros_openni_kinect SHARED src/gazebo_ros_openni_kinect.cpp )
 # target_link_libraries(fixed_ros_openni_kinect gazebo_ros_camera_utils DepthCameraPlugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES})
+
+add_library(euler_path_follower src/euler_path_follower.cpp) # SHARED
+set_target_properties(euler_path_follower PROPERTIES LINK_FLAGS "${ld_flags}")
+set_target_properties(euler_path_follower PROPERTIES COMPILE_FLAGS "${cxx_flags}")
+target_link_libraries(euler_path_follower ${GAZEBO_LIBRARIES} ${catkin_LIBRARIES})
+# target_link_libraries(euler_path_follower ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} ${catkin_LIBRARIES})
+add_dependencies(euler_path_follower ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

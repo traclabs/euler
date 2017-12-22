@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="euler_path_follower">
+
+ <!-- <link name="base_link"/> -->
+
+  <macro name="euler_path_follower">
+    
+	  <link name="euler_path_follower">
+    <!--
+      <visual>
+        <geometry>
+          <mesh filename="package://pharaoh_dev/models/aa_habitat_module/aa_habitat.stl" scale="0.01 0.01 0.01"/>
+        </geometry>
+        <material name="Gray">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+        <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+      </visual>
+      <inertial>
+        <mass value="10"/>
+        <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1" iyz="0.0" izz="1"/>
+		</inertial>
+    -->
+    </link> 
+
+   <joint name="base_link/euler_path_follower" type="fixed">
+      <parent link="base_link"/>
+      <child link="euler_path_follower"/>
+      <!--origin rpy="0 0 -0.6" xyz="${x} ${y} ${z}"/-->
+    </joint>
+
+    <gazebo reference="euler_path_follower">
+      <material>Gazebo/Gray</material>
+    </gazebo>
+  </macro>
+
+  <gazebo>
+    <plugin name="euler_path_follower_plugin" filename="libeuler_path_follower.so">
+      <update_period>0.01</update_period>
+  		<cmd_vel_topic>/euler/mobile_base_controller/cmd_vel</cmd_vel_topic>
+    </plugin>
+  </gazebo>
+
+  <!-- move instances to world file? -->
+  <euler_path_follower/> 
+
+</robot>

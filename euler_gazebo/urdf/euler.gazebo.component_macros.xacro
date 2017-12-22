@@ -73,11 +73,11 @@
   <!-- euler base xacro -->
   <xacro:macro name="euler_base" params="prefix side">
     
-    <gazebo_joint prefix="${prefix}" joint_name="vetex_${side}_front_wheel_joint" kd="4" kp="10"/>
-    <gazebo_joint prefix="${prefix}" joint_name="vetex_${side}_rear_wheel_joint" kd="4" kp="10"/>
+    <gazebo_joint prefix="${prefix}" joint_name="vetex_${side}_front_wheel_joint" kd="40" kp="100"/>
+    <gazebo_joint prefix="${prefix}" joint_name="vetex_${side}_rear_wheel_joint" kd="40" kp="100"/>
 
-    <gazebo_dif_drive_trans prefix="${prefix}" joint_name="vetex_${side}_front_wheel" reduction="1" tc="1"/>
-    <gazebo_dif_drive_trans prefix="${prefix}" joint_name="vetex_${side}_rear_wheel"  reduction="1" tc="1"/>
+    <gazebo_dif_drive_trans prefix="${prefix}" joint_name="vetex_${side}_front_wheel" reduction="1" tc="100"/>
+    <gazebo_dif_drive_trans prefix="${prefix}" joint_name="vetex_${side}_rear_wheel"  reduction="1" tc="100"/>
   
   </xacro:macro>
 

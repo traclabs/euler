@@ -36,7 +36,10 @@
   <run_depend>tf</run_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
-  <export>
+ <export>
+    <gazebo_ros gazebo_media_path="${prefix}:/models" 
+                gazebo_model_path="${prefix}:/models"
+                gazebo_resource_path="${prefix}:/models"
+    />
   </export>
-
 </package>

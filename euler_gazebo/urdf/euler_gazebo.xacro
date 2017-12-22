@@ -5,6 +5,7 @@
   <xacro:include filename="$(find euler_support)/urdf/euler_macro.xacro" />
   <xacro:include filename="$(find euler_gazebo)/urdf/euler.gazebo.components.xacro"/> 
   <xacro:include filename="$(find euler_gazebo)/urdf/euler.gazebo.controllers.xacro"/>
+  <xacro:include filename="$(find euler_gazebo)/urdf/euler_path_follower.xacro"/> 
 
 
   <gazebo reference="frame_left">
@@ -75,8 +76,8 @@
 
   <gazebo reference="vetex_right_rear_wheel">
     <material>Gazebo/Black</material>
-    <mu1 value="1.0" />
-    <mu2 value="1.0" />
+    <mu1 value=".1" />
+    <mu2 value=".1" />
     <kp value="10000000.0" />
     <kd value="1.0" />
   </gazebo>
@@ -84,8 +85,8 @@
 
   <gazebo reference="vetex_right_front_wheel">
     <material>Gazebo/Black</material>
-    <mu1 value="1.0" />
-    <mu2 value="1.0" />
+    <mu1 value=".1" />
+    <mu2 value=".1" />
     <kp value="10000000.0" />
     <kd value="1.0" />
   </gazebo>
@@ -93,8 +94,8 @@
 
   <gazebo reference="vetex_left_rear_wheel">
     <material>Gazebo/Black</material>
-    <mu1 value="1.0" />
-    <mu2 value="1.0" />
+    <mu1 value=".1" />
+    <mu2 value=".1" />
     <kp value="10000000.0" />
     <kd value="1.0" />
   </gazebo>
@@ -102,8 +103,8 @@
 
   <gazebo reference="vetex_left_front_wheel">
     <material>Gazebo/Black</material>
-    <mu1 value="1.0" />
-    <mu2 value="1.0" />
+    <mu1 value=".1" />
+    <mu2 value=".1" />
     <kp value="10000000.0" />
     <kd value="1.0" />
   </gazebo>
