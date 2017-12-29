@@ -64,7 +64,7 @@
 
   <node name="model_states_converter" pkg="tracbot_gazebo" type="model_states_converter" >
    <param name="model_name" value="euler"/>
-   <param name="tf_base_frame" value="base_link"/>
+   <param name="tf_base_frame" value="vetex_base_footprint"/>
    <param name="tf_publish_frame" value="perfect_odom"/>   
    <param name="tf_odom_frame" value="odom"/>
   </node>

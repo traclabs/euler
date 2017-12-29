@@ -25,7 +25,7 @@
 			<inertial>
 		      <mass value="1.0"/>
 		      <origin xyz="0 0 0"/>
-		      <inertia ixx="0.05" ixy="0.0" ixz="0.0" iyy="0.05" iyz="0.0" izz="0.05"/>
+		      <inertia ixx="0.006262" ixy="0.0" ixz="0.0" iyy="0.007306" iyz="0.0" izz="0.005740"/>
 		    </inertial>
 		</link>
 		<link name="${prefix}link_s">
@@ -46,7 +46,7 @@
 			<inertial>
 		      <mass value="1.0"/>
 		      <origin xyz="0 0 0"/>
-		      <inertia ixx="0.05" ixy="0.0" ixz="0.0" iyy="0.05" iyz="0.0" izz="0.05"/>
+		      <inertia ixx="0.00387" ixy="0.0" ixz="-0.00129" iyy="0.005426" iyz="0.0" izz="0.004393"/>
 		    </inertial>
 		</link>
 		<link name="${prefix}link_l">
@@ -65,7 +65,7 @@
 			<inertial>
 		      <mass value="1.0"/>
 		      <origin xyz="0 0 0"/>
-		      <inertia ixx="0.05" ixy="0.0" ixz="0.0" iyy="0.05" iyz="0.0" izz="0.05"/>
+		      <inertia ixx="0.02431" ixy="0.0" ixz="0.0" iyy="0.02190" iyz="0.0" izz="0.005103"/>
 		    </inertial>
 		</link>
 		<link name="${prefix}link_u">
@@ -84,7 +84,7 @@
 			<inertial>
 		      <mass value="1.0"/>
 		      <origin xyz="0 0 0"/>
-		      <inertia ixx="0.05" ixy="0.0" ixz="0.0" iyy="0.05" iyz="0.0" izz="0.05"/>
+		      <inertia ixx="0.002966" ixy="0.0" ixz="0.0" iyy="0.003377" iyz="0.0" izz="0.002966"/>
 		    </inertial>
 		</link>
 		<link name="${prefix}link_r">
@@ -103,7 +103,7 @@
 			<inertial>
 		      <mass value="1.0"/>
 		      <origin xyz="0 0 0"/>
-		      <inertia ixx="0.05" ixy="0.0" ixz="0.0" iyy="0.05" iyz="0.0" izz="0.05"/>
+		      <inertia ixx="0.001861" ixy="0.0" ixz="0.0" iyy="0.010366" iyz="0.0" izz="0.01063"/>
 		    </inertial>
 		</link>
 		<link name="${prefix}link_b">
@@ -122,7 +122,7 @@
 			<inertial>
 		      <mass value="1.0"/>
 		      <origin xyz="0 0 0"/>
-		      <inertia ixx="0.05" ixy="0.0" ixz="0.0" iyy="0.05" iyz="0.0" izz="0.05"/>
+		      <inertia ixx="0.02165" ixy="0.0" ixz="0.0" iyy="0.002165" iyz="0.0" izz="0.002165"/>
 		    </inertial>
 		</link>
 		<link name="${prefix}link_t">
@@ -141,7 +141,7 @@
 			<inertial>
 		      <mass value="1.0"/>
 		      <origin xyz="0 0 0"/>
-		      <inertia ixx="0.05" ixy="0.0" ixz="0.0" iyy="0.05" iyz="0.0" izz="0.05"/>
+		      <inertia ixx="0.02165" ixy="0.0" ixz="0.0" iyy="0.002165" iyz="0.0" izz="0.002165"/>
 		    </inertial>
 		</link>
 		<!-- end of link list -->
