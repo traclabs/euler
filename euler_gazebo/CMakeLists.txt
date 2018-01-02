@@ -40,6 +40,12 @@ include_directories( ${OGRE_INCLUDE_DIRS}/Paging )
 # )
 
 
+list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
+
+add_library( friction_plugin SHARED src/friction.cpp )
+target_link_libraries( friction_plugin ${GAZEBO_LIBRARIES} )
+
+
 ###################################
 ## catkin specific configuration ##
 ###################################

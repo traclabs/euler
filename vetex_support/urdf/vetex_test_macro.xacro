@@ -5,7 +5,7 @@
     <link name="${prefix}base_link">
       <visual>
         <geometry>
-          <mesh filename="package://vetex_support/meshes/visual/base_link.stl" />
+          <mesh filename="package://vetex_support/meshes/visual/test_base.stl" />
         </geometry>
         <material name="euler_gray">
           <color rgba="0.75294 0.75294 0.75294 1" />
@@ -13,20 +13,20 @@
       </visual>
       <collision>
         <geometry>
-          <mesh filename="package://vetex_support/meshes/collision/base_link_03.stl" />
+          <mesh filename="package://vetex_support/meshes/visual/test_base.stl" />
         </geometry>
       </collision>
       <inertial>
-        <mass value="52.0"/>
-        <origin xyz="-1.19 0 0.19"/>
-        <inertia ixx="0.1347" ixy="0.0" ixz="0.0" iyy="0.5214" iyz="0.0" izz="0.6144"/>
+        <mass value="20.0"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.07" ixy="0.0" ixz="0.0" iyy="0.5433" iyz="0.0" izz="0.569"/>
       </inertial>
     </link>
     <link name="${prefix}base_footprint"/>
     <link name="${prefix}left_front_wheel">
       <visual>
         <geometry>
-          <mesh filename="package://vetex_support/meshes/visual/left_front_wheel.stl" />
+          <mesh filename="package://vetex_support/meshes/visual/test_wheel_015.stl" />
         </geometry>
         <material name="euler_black">
           <color rgba="0.01 0.01 0.01 1" />
@@ -34,20 +34,19 @@
       </visual>
       <collision>
         <geometry>
-          <mesh filename="package://vetex_support/meshes/collision/left_front_wheel_02.stl" /> 
+          <mesh filename="package://vetex_support/meshes/visual/test_wheel_015.stl" /> 
         </geometry>
       </collision>
       <inertial>
-        <mass value="4.0"/>
-        <origin xyz="0 -0.13 0"/>
-        <inertia ixx="0.0139" ixy="0.0" ixz="0.0" iyy="0.01818" iyz="0.0" izz="0.0139"/>
+        <mass value="2.0"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.0126" ixy="0.0" ixz="0.0" iyy="0.0206" iyz="0.0" izz="0.0126"/>
       </inertial>  
     </link>                
     <link name="${prefix}left_rear_wheel">
       <visual>
         <geometry>
-          <!--<cylinder length="0.2" radius="0.2"/>-->
-          <mesh filename="package://vetex_support/meshes/visual/left_rear_wheel.stl" />
+          <mesh filename="package://vetex_support/meshes/visual/test_wheel_015.stl" />
         </geometry>
         <material name="euler_black"/>
       </visual>
@@ -55,96 +54,90 @@
         <!--<origin xyz="0 -0.10 0" rpy="1.5708 0 0" />-->
         <geometry>
           <!-- <cylinder length="0.2" radius="0.2"/>-->
-          <mesh filename="package://vetex_support/meshes/collision/left_rear_wheel_02.stl" /> 
+          <mesh filename="package://vetex_support/meshes/visual/test_wheel_015.stl" /> 
         </geometry>
       </collision>
       <inertial>
-        <mass value="4.0"/>
-        <origin xyz="0 -0.15 0"/>
-        <inertia ixx="0.01292" ixy="0.0" ixz="0.0" iyy="0.02012" iyz="0.0" izz="0.01292"/>
+        <mass value="2.0"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.0126" ixy="0.0" ixz="0.0" iyy="0.0206" iyz="0.0" izz="0.0126"/>
       </inertial>
     </link>
     <link name="${prefix}right_rear_wheel">
       <visual>
         <origin rpy="3.1415 0 0" />
         <geometry>
-          <mesh filename="package://vetex_support/meshes/visual/right_rear_wheel.stl" />
+          <mesh filename="package://vetex_support/meshes/visual/test_wheel_015.stl" />
         </geometry>
         <material name="euler_black"/>
         </visual>
       <collision>
-        <!--<origin xyz="0 0.10 0" rpy="1.5708 0 0" />-->
         <origin rpy="3.1415 0 0" />
         <geometry>
           <!--<cylinder length="0.2" radius="0.2"/>-->
-          <mesh filename="package://vetex_support/meshes/collision/right_rear_wheel_02.stl" /> 
+          <mesh filename="package://vetex_support/meshes/visual/test_wheel_015.stl" /> 
         </geometry>
       </collision>
       <inertial>
-        <mass value="4.0"/>
-        <origin xyz="0 0.13 0"/>
-        <inertia ixx="0.0139" ixy="0.0" ixz="0.0" iyy="0.01818" iyz="0.0" izz="0.0139"/>
+        <mass value="2.0"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.0126" ixy="0.0" ixz="0.0" iyy="0.0206" iyz="0.0" izz="0.0126"/>
       </inertial>  
     </link>
     <link name="${prefix}right_front_wheel">
       <visual>
         <origin rpy="3.1415 0 0" />
         <geometry>
-          <!--<cylinder length="0.2" radius="0.2"/>-->
-          <mesh filename="package://vetex_support/meshes/visual/right_front_wheel.stl" />
+          <mesh filename="package://vetex_support/meshes/visual/test_wheel_015.stl" /> 
         </geometry>
         <material name="euler_black"/>
       </visual>
       <collision>
         <origin rpy="3.1415 0 0" />    
         <geometry> 
-          <mesh filename="package://vetex_support/meshes/collision/right_front_wheel_02.stl" /> 
+          <mesh filename="package://vetex_support/meshes/visual/test_wheel_015.stl" /> 
         </geometry>
       </collision>
       <inertial>
-        <mass value="4.0"/>
-        <origin xyz="0 0.15 0"/>
-        <inertia ixx="0.01292" ixy="0.0" ixz="0.0" iyy="0.02012" iyz="0.0" izz="0.01292"/>
+        <mass value="2.0"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.0126" ixy="0.0" ixz="0.0" iyy="0.0206" iyz="0.0" izz="0.0126"/>
       </inertial>
     </link>
     <!-- end of link list -->
     <!-- joint list -->
-    <joint name="${prefix}to_footprint" type="fixed">
-      <origin xyz="-1.0439 0 0"/>
-      <parent link="${prefix}base_link" />
-      <child link="${prefix}base_footprint" />
+    <joint name="${prefix}to_base_link" type="fixed">
+      <origin xyz="0 0 0.31"/>
+      <parent link="${prefix}base_footprint" />
+      <child link="${prefix}base_link" />
     </joint>
     <joint name="${prefix}left_front_wheel_joint" type="continuous">
-      <!--<origin xyz="0 0.58668 0.21577" rpy="1.57 1 0" />-->
-      <origin xyz="0 0.58668 0.21577" rpy="0 0 0" />
+      <origin xyz="1.0 0.52 -0.10" rpy="0 0 0" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}left_front_wheel" />
       <axis xyz="0 1 0" />
-      <limit effort="100" velocity="3" />
+      <limit effort="100" velocity="10" />
     </joint>
     <joint name="${prefix}left_rear_wheel_joint" type="continuous">
-      <!--<origin xyz="-2.0878 0.58642 0.21577" rpy="1.57 1 0" />-->
-      <origin xyz="-2.0878 0.58642 0.21577" rpy="0 0 0" />
+      <origin xyz="-1.0 0.52 -0.10" rpy="0 0 0" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}left_rear_wheel" />
       <axis xyz="0 1 0" />
-      <limit effort="100" velocity="3" />
+      <limit effort="100" velocity="10" />
     </joint>
     <joint name="${prefix}right_rear_wheel_joint" type="continuous">
-      <!--<origin xyz="-2.0878 -0.58668 0.21577" rpy="1.57 1 0" />-->
-      <origin xyz="-2.0878 -0.58668 0.21577" rpy="0 0 0" />
+      <origin xyz="-1.0 -0.52 -0.10" rpy="0 0 0" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}right_rear_wheel" />
       <axis xyz="0 1 0" />
-      <limit effort="100" velocity="3" />
+      <limit effort="100" velocity="10" />
     </joint>                
     <joint name="${prefix}right_front_wheel_joint" type="continuous">
-      <!--<origin xyz="0 -0.58642 0.21577" rpy="1.57 1 0" />-->
-      <origin xyz="0 -0.58642 0.21577" rpy="0 0 0" />
+      <origin xyz="1.0 -0.52 -0.10" rpy="0 0 0" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}right_front_wheel" />
       <axis xyz="0 1 0" />
-      <limit effort="100" velocity="3" />
+      <limit effort="100" velocity="10" />
     </joint>
     <!-- end of joint list -->
   </xacro:macro>

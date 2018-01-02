@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-	<xacro:include filename="$(find vetex_support)/urdf/vetex_macro.xacro" />
+	<xacro:include filename="$(find vetex_support)/urdf/vetex_test_macro.xacro" />
 	<xacro:include filename="$(find motoman_mh5lf_support)/urdf/mh5lf_macro.xacro" />
 	<xacro:include filename="$(find euler_support)/urdf/asus_xtion_pro.xacro" />
 	<xacro:include filename="$(find euler_support)/urdf/eef_macro.xacro" />
@@ -9,14 +9,14 @@
 	<xacro:macro name="euler" params="prefix"> 
 	
 	<xacro:vetex prefix="vetex_" />
-	<xacro:motoman_mh5lf prefix="motoman_" /> 
+	<!--<xacro:motoman_mh5lf prefix="motoman_" />--> 
 	<!-- <xacro:asus_xtion_pro sensor_name="" off_x="0.461" off_y="0" off_z="2.103" off_rr="1.5708" off_rp="1.8849" off_ry="0"/>        -->
-	<xacro:eef prefix=""/>         
+	<!--<xacro:eef prefix=""/>         -->
 	
 	<!--link list -->
-	<link name="${prefix}base_link"> 
-	</link>
-	<link name="${prefix}frame_left">
+	<!--<link name="${prefix}base_link"> 
+	</link> -->
+	<!--<link name="${prefix}frame_left">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
@@ -161,13 +161,13 @@
 		<origin xyz="0 0 0" rpy="0 0 0" />
 		<axis xyz="0 0 0" />
 	</joint>     
-	 
-	<joint name="${prefix}to_vetex" type="fixed">
+	 -->
+	<!--<joint name="${prefix}to_vetex" type="fixed">
 		<parent link="${prefix}base_link" />
 		<child link="${prefix}vetex_base_link" />
 		<origin xyz="0 0 0" rpy="0 0 0" />
 		<axis xyz="0 0 0" />
-	</joint>       
+	</joint>--> <!--       
 	<joint name="${prefix}to_arm" type="fixed">
 		<parent link="${prefix}base_link" />
 		<child link="${prefix}motoman_base_link" />
@@ -198,7 +198,7 @@
 		<child link="eef_base" />
 		<origin xyz="0.098 0 0" rpy="0 1.57 0" />
 	</joint>
-
+-->
 	
 </xacro:macro>
 </robot>

@@ -7,7 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
       Splitter Ratio: 0.5
-    Tree Height: 843
+    Tree Height: 815
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -59,88 +59,6 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        eef_base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        eef_body:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        frame_left:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        frame_right:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        frame_top:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_sick_s300:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        motoman_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        motoman_link_b:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        motoman_link_l:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        motoman_link_r:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        motoman_link_s:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        motoman_link_t:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        motoman_link_u:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rear_sick_s300:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        sick_nav350:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        tcp:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         vetex_base_footprint:
           Alpha: 1
           Show Axes: false
@@ -250,7 +168,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: odom
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
@@ -267,7 +185,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 7.52257919
+      Distance: 13.0664492
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -290,10 +208,10 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1056
+  Height: 1028
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000004000000000000016a000003dafc0200000005fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000028000003da000000dd00ffffff00000001000001cc000003dafc0200000004fb00000038005200560069007a0049006e0074006500720061006300740069007600650043006f006e00740072006f006c007300500061006e0065006c0100000028000003da0000031400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000003da000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a00000030000fffffffb0000000800540069006d00650100000000000004500000000000000000000003fd000003da00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000004000000000000016a000003befc0200000005fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000028000003be000000dd00ffffff00000001000001cc000003befc0200000004fb00000038005200560069007a0049006e0074006500720061006300740069007600650043006f006e00740072006f006c007300500061006e0065006c0100000028000003be0000031400fffffffb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000003da000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004a00000003efc0100000002fb0000000800540069006d00650000000000000004a00000030000fffffffb0000000800540069006d00650100000000000004500000000000000000000003fd000003be00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   RVizInteractiveControlsPanel:
     collapsed: false
   Selection:
@@ -305,5 +223,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1855
-  X: 65
-  Y: 24
+  X: 803
+  Y: 61

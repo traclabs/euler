@@ -7,7 +7,7 @@
   <xacro:include filename="$(find euler_gazebo)/urdf/euler.gazebo.controllers.xacro"/>
 
 
-  <gazebo reference="frame_left">
+<!--  <gazebo reference="frame_left">
     <material>Gazebo/Grey</material>
   </gazebo>
 
@@ -20,11 +20,11 @@
   <gazebo reference="frame_top">
     <material>Gazebo/Grey</material>
   </gazebo>
-
+-->
   <gazebo reference="vetex_base_link">
     <material>Gazebo/Grey</material>
   </gazebo>
-
+<!--
   <gazebo reference="motoman_base_link">
     <material>Gazebo/Blue</material>
   </gazebo>
@@ -72,40 +72,36 @@
   <gazebo reference="rear_sick_s300">
     <material>Gazebo/Yellow</material>
   </gazebo>
-
+-->
   <gazebo reference="vetex_right_rear_wheel">
     <material>Gazebo/Black</material>
-    <mu1 value="1.0" />
-    <mu2 value="1.0" />
-    <kp value="10000000.0" />
-    <kd value="1.0" />
+    <mu1 value="0.9" />
+    <mu2 value="0.9" />
+    <minDepth>0.0001</minDepth>
   </gazebo>
 
 
   <gazebo reference="vetex_right_front_wheel">
     <material>Gazebo/Black</material>
-    <mu1 value="1.0" />
-    <mu2 value="1.0" />
-    <kp value="10000000.0" />
-    <kd value="1.0" />
+    <mu1 value="0.9" />
+    <mu2 value="0.9" />
+    <minDepth>0.0001</minDepth>
   </gazebo>
 
 
   <gazebo reference="vetex_left_rear_wheel">
     <material>Gazebo/Black</material>
-    <mu1 value="1.0" />
-    <mu2 value="1.0" />
-    <kp value="10000000.0" />
-    <kd value="1.0" />
+    <mu1 value="0.9" />
+    <mu2 value="0.9" />
+    <minDepth>0.001</minDepth>
   </gazebo>
 
 
   <gazebo reference="vetex_left_front_wheel">
     <material>Gazebo/Black</material>
-    <mu1 value="1.0" />
-    <mu2 value="1.0" />
-    <kp value="10000000.0" />
-    <kd value="1.0" />
+    <mu1 value="0.9" />
+    <mu2 value="0.9" />
+    <minDepth>0.0001</minDepth>
   </gazebo>
 
 </robot>

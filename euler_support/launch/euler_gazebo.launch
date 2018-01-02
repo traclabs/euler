@@ -11,6 +11,7 @@
   <arg name="octomap"    default="false" />
   <arg name="x"          default="0" />
   <arg name="y"          default="0" />
+  <arg name="z"          default="0.35" />
   <arg name="yaw"        default="0" />
   <arg name="paused"     default="false" />
 
@@ -41,7 +42,7 @@
     <param name="euler/robot_description" command="$(find xacro)/xacro --inorder '$(find euler_gazebo)/urdf/euler_gazebo.xacro'" />
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find euler_gazebo)/urdf/euler_gazebo.xacro'" />
     <node name="spawn_euler" pkg="gazebo_ros" type="spawn_model" 
-      args="-urdf -param robot_description -model euler -paused=false -x $(arg x) -y $(arg y) -Y $(arg yaw)" 
+      args="-urdf -param robot_description -model euler -paused=false -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw)" 
       respawn="false" output="screen" />
   </group>
 
@@ -49,7 +50,7 @@
   <rosparam file="$(find euler_gazebo)/config/controllers/euler_gazebo_generic_traj_control.yaml" command="load"/>
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" ns="euler" args=" mobile_base_controller arm_controller joint_state_controller" />
+    output="screen" ns="euler" args=" mobile_base_controller joint_state_controller" /> <!-- arm_controller  -->
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
@@ -64,7 +65,7 @@
 
   <node name="model_states_converter" pkg="tracbot_gazebo" type="model_states_converter" >
    <param name="model_name" value="euler"/>
-   <param name="tf_base_frame" value="base_link"/>
+   <param name="tf_base_frame" value="vetex_base_footprint"/>
    <param name="tf_publish_frame" value="perfect_odom"/>   
    <param name="tf_odom_frame" value="odom"/>
   </node>

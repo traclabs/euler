@@ -1,6 +1,9 @@
 <?xml version="1.0" ?>
-<sdf version="1.4">
+<sdf version="1.6">
   <world name="default">
+
+    <plugin name="factory" filename="/home/ana/pharaoh/devel/lib/libfriction_plugin.so"/>
+
     <scene>
       <ambient>0.5 0.5 0.5 1</ambient>
       <background>0.5 0.5 0.5 1</background>
@@ -14,6 +17,8 @@
           <type>quick</type>
           <iters>10</iters>
           <sor>1.3</sor>
+          <friction_model>1</friction_model>
+          <!--  pyramid_friction,  cone_friction,  box_friction -->
         </solver>
         <constraints>
           <cfm>0.0</cfm>
@@ -36,9 +41,9 @@
           <surface>
             <friction>
               <ode>
-                <mu>10.0</mu>
-                <mu2>10.0</mu2>
-                <fdir1>0 0 0</fdir1>
+                <mu>100</mu>
+                <mu2>100</mu2>
+                <!--<fdir1>0 0 0</fdir1>-->
                 <slip1>0</slip1>
                 <slip2>0</slip2>
               </ode>

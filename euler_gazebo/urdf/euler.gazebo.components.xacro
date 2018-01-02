@@ -7,7 +7,7 @@
 
   <xacro:euler prefix=""/>
   
-  <euler_arm prefix=""/>
+  <!--<euler_arm prefix=""/>-->
   <euler_base prefix="" side="left"/>
   <euler_base prefix="" side="right"/>
 
