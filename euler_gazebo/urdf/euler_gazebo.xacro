@@ -5,6 +5,35 @@
   <xacro:include filename="$(find euler_support)/urdf/euler_macro.xacro" />
   <xacro:include filename="$(find euler_gazebo)/urdf/euler.gazebo.components.xacro"/> 
   <xacro:include filename="$(find euler_gazebo)/urdf/euler.gazebo.controllers.xacro"/>
+<!--  <xacro:include filename="$(find euler_gazebo)/urdf/gazebo/sick_s300.gazebo.xacro" /> -->
+    <gazebo reference="front_sick_s300">
+      <sensor type="ray" name="sick_sensor">
+        <pose>0 0 0 0 0 0</pose>
+        <visualize>false</visualize>
+        <update_rate>26</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>231</samples>
+              <resolution>1</resolution>
+              <min_angle>-2.00712</min_angle>
+              <max_angle>2.00712</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.10</min>
+            <max>15.0</max>
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+        <plugin name="gazebo_ros_sick_controller" filename="libgazebo_ros_laser.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>26</updateRate>
+          <topicName>front_sick_s300/scan</topicName>
+          <frameName>front_sick_s300</frameName>
+        </plugin>
+      </sensor>
+    </gazebo>
 
 
   <gazebo reference="frame_left">
@@ -103,5 +132,11 @@
     <mu2 value="0.9" />
     <minDepth>0.0001</minDepth>
   </gazebo>
+
+  <!-- Sensors -->
+  <!--<sick_s300_gazebo link="front_sick_s300" topic_name="front_sick_s300" /> -->
+  <!-- <sick_s300_gazebo link="rear_sick_s300" topic_name="rear_sick_s300" />
+  <sick_s300_gazebo link="sick_nav350" topic_name="sick_nav350" /> -->
+
 
 </robot>
