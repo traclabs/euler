@@ -42,6 +42,22 @@
      </transmission>
   </xacro:macro>
 
+  <!-- transmission EFFORT xacro -->
+  <xacro:macro name="gazebo_simple_effort_trans" params="prefix joint_name reduction tc">
+     <transmission name="${prefix}${joint_name}_trans">
+       <type>transmission_interface/SimpleTransmission</type>
+       <joint name="${prefix}${joint_name}">
+         <hardwareInterface>EffortJointInterface</hardwareInterface>
+       </joint>
+       <actuator name="${prefix}${joint_name}_motor">
+         <hardwareInterface>EffortJointInterface</hardwareInterface>
+         <mechanicalReduction>${reduction}</mechanicalReduction>
+       </actuator>
+       <motorTorqueConstant>${tc}</motorTorqueConstant>
+     </transmission>
+  </xacro:macro>
+
+
   <xacro:macro name="gazebo_simple_trans" params="prefix joint_name reduction tc">
      <transmission name="${prefix}${joint_name}_trans">
        <type>transmission_interface/SimpleTransmission</type>
@@ -99,12 +115,20 @@
     <gazebo_joint prefix="${prefix}" joint_name="motoman_joint_b" kd="4" kp="10"/>
     <gazebo_joint prefix="${prefix}" joint_name="motoman_joint_t" kd="4" kp="10"/>
 
-    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_s" reduction="1" tc="1"/>
+<!--    <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_s" reduction="1" tc="1"/>
     <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_l" reduction="1" tc="1"/>
     <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_u" reduction="1" tc="1"/>
     <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_r" reduction="1" tc="1"/>
     <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_b" reduction="1" tc="1"/>
     <gazebo_simple_pos_trans prefix="${prefix}" joint_name="motoman_joint_t" reduction="1" tc="1"/>
+-->
+    <gazebo_simple_effort_trans prefix="${prefix}" joint_name="motoman_joint_s" reduction="1" tc="1"/>
+    <gazebo_simple_effort_trans prefix="${prefix}" joint_name="motoman_joint_l" reduction="1" tc="1"/>
+    <gazebo_simple_effort_trans prefix="${prefix}" joint_name="motoman_joint_u" reduction="1" tc="1"/>
+    <gazebo_simple_effort_trans prefix="${prefix}" joint_name="motoman_joint_r" reduction="1" tc="1"/>
+    <gazebo_simple_effort_trans prefix="${prefix}" joint_name="motoman_joint_b" reduction="1" tc="1"/>
+    <gazebo_simple_effort_trans prefix="${prefix}" joint_name="motoman_joint_t" reduction="1" tc="1"/>
+
 
   </xacro:macro>
 

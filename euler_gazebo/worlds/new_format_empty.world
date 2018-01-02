@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <sdf version="1.4">
   <world name="default">
+
     <scene>
       <ambient>0.5 0.5 0.5 1</ambient>
       <background>0.5 0.5 0.5 1</background>
@@ -83,5 +84,8 @@
       <direction>0 0 -1</direction>
       <cast_shadows>false</cast_shadows>
     </light>
+  
+    <!-- Plugin to set friction model to cone -->
+    <plugin name="cone_friction" filename="libcone_friction.so" />
   </world>
 </sdf>
