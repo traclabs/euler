@@ -40,6 +40,6 @@
     <gazebo_ros gazebo_media_path="${prefix}:/models" 
                 gazebo_model_path="${prefix}:/models"
                 gazebo_resource_path="${prefix}:/models"
-    />
+                plugin_path="${prefix}/lib" />
   </export>
 </package>

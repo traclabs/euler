@@ -12,6 +12,26 @@
     <group name="arm">
         <chain base_link="motoman_base_link" tip_link="motoman_link_t" />
     </group>
+
+
+    <group_state name="Zero" group="arm">
+      <joint name="motoman_joint_s" value="0" />
+      <joint name="motoman_joint_l" value="0" />
+      <joint name="motoman_joint_u" value="0" />
+      <joint name="motoman_joint_r" value="0" />
+      <joint name="motoman_joint_b" value="0" />
+      <joint name="motoman_joint_t" value="0" />
+    </group_state>
+
+    <group_state name="Retracted" group="arm">
+      <joint name="motoman_joint_s" value="0.0" />
+      <joint name="motoman_joint_l" value="-0.75" />
+      <joint name="motoman_joint_u" value="0.49" />
+      <joint name="motoman_joint_r" value="0.0" />
+      <joint name="motoman_joint_b" value="-1.23" />
+      <joint name="motoman_joint_t" value="0.0" />
+    </group_state>
+
  <!-- 
     <group name="base">
         <joint name="vetek_left_front_wheel" />

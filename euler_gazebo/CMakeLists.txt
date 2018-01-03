@@ -42,6 +42,12 @@ include_directories( ${OGRE_INCLUDE_DIRS}/Paging )
 #   control_msgs#   sensor_msgs#   std_msgs#   trajectory_msgs
 # )
 
+list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
+
+add_library( cone_friction SHARED src/cone_friction.cpp )
+target_link_libraries( cone_friction ${GAZEBO_LIBRARIES} )
+
+
 
 ###################################
 ## catkin specific configuration ##

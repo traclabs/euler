@@ -45,7 +45,7 @@ euler:
 
   # Joint Trajectory Controller
   arm_controller:
-    type: "position_controllers/JointTrajectoryController"
+    type: "effort_controllers/JointTrajectoryController"
     joints:
       - motoman_joint_s
       - motoman_joint_l
@@ -53,26 +53,45 @@ euler:
       - motoman_joint_r
       - motoman_joint_b
       - motoman_joint_t
-    constraints:
-      stopped_velocity_tolerance: 0.001
-      motoman_joint_s:
-        goal: 0.0001
-        trajectory: 0.2
-      motoman_joint_l:
-        goal: 0.0001
-        trajectory: 0.2
-      motoman_joint_u:
-        goal: 0.0001
-        trajectory: 0.2
-      motoman_joint_r:
-        goal: 0.0001
-        trajectory: 0.2
-      motoman_joint_b:
-        goal: 0.0001
-        trajectory: 0.2
-      motoman_joint_t:
-        goal: 0.0001
-        trajectory: 0.2
+
+    gains:
+      motoman_joint_s: {p: 1000.0, d: 10, i: 0, i_clamp: 500.0}
+      motoman_joint_l: {p: 1000.0, d: 100, i: 1, i_clamp: 500.0}
+      motoman_joint_u: {p: 1800.0, d: 10, i: 0, i_clamp: 500.0}
+      motoman_joint_r: {p: 1000.0, d: 10, i: 0, i_clamp: 500.0}
+      motoman_joint_b: {p: 800.0, d: 10, i: 0, i_clamp: 500.0}
+      motoman_joint_t: {p: 400.0, d: 10, i: 0, i_clamp: 500.0}
+
+    follow_joint_trajectory:
+      joints:
+        - motoman_joint_s
+        - motoman_joint_l
+        - motoman_joint_u
+        - motoman_joint_r
+        - motoman_joint_b
+        - motoman_joint_t
+
+      constraints:
+        goal_time: 10.0
+        motoman_joint_s:
+          goal: 0.1
+        motoman_joint_l:
+          goal: 0.1
+        motoman_joint_u:
+          goal: 0.1
+        motoman_joint_r:
+          goal: 0.1
+        motoman_joint_b:
+          goal: 0.1
+        motoman_joint_t:
+          goal: 0.1
+
+      state_publish_rate:  25            # Override default
+      action_monitor_rate: 30            # Override default
+      stop_trajectory_duration: 0        # Override default
+
+
+
 
   # Position Group controller
   arm_position_controller:
