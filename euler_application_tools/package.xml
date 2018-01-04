@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>euler_at</name>
+  <name>euler_application_tools</name>
   <version>0.0.0</version>
-  <description>The euler_at package</description>
+  <description>The euler_application_tools package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
@@ -19,7 +19,7 @@
   <!-- Url tags are optional, but multiple are allowed, one per tag -->
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
-  <!-- <url type="website">http://wiki.ros.org/euler_at</url> -->
+  <!-- <url type="website">http://wiki.ros.org/euler_application_tools</url> -->
 
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->
@@ -49,11 +49,17 @@
   <!-- Use doc_depend for packages you need only for building documentation: -->
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>planner_interface</build_depend>
+  <build_depend>affordance_template_client</build_depend>
+  <build_depend>affordance_template_msgs</build_depend>
+  <build_depend>robot_interaction_tools_msgs</build_depend>
   <build_depend>roscpp</build_depend>
-  <build_export_depend>planner_interface</build_export_depend>
+  <build_export_depend>affordance_template_client</build_export_depend>
+  <build_export_depend>affordance_template_msgs</build_export_depend>
+  <build_export_depend>robot_interaction_tools_msgs</build_export_depend>
   <build_export_depend>roscpp</build_export_depend>
-  <exec_depend>planner_interface</exec_depend>
+  <exec_depend>affordance_template_client</exec_depend>
+  <exec_depend>affordance_template_msgs</exec_depend>
+  <exec_depend>robot_interaction_tools_msgs</exec_depend>
   <exec_depend>roscpp</exec_depend>
 
 
