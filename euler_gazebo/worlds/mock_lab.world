@@ -109,7 +109,7 @@
 
 
     <!-- Additional models -->
-    <model name='box_on_euler'>
+<!--    <model name='box_on_euler'>
     <static>false</static>
       <pose frame=''>-0.95 0.0 0.75 0 0 0</pose>
       <link name='link'>
@@ -119,13 +119,11 @@
             <ixx>0.166667</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
-            <iyy>0.166667</iyy>
+            <iyy>0.10</iyy>
             <iyz>0</iyz>
-            <izz>0.166667</izz>
+            <izz>0.05</izz>
           </inertia>
         </inertial>
-
-
         <collision name='collision'>
           <geometry>
             <box>
@@ -168,7 +166,7 @@
         <kinematic>0</kinematic>
         <gravity>1</gravity>
       </link>
-    </model>
+    </model> -->
 
     <model name='box_support'>
     <static>false</static>

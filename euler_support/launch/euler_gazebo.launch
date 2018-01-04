@@ -3,7 +3,7 @@
 
   <arg name="robot"      default="true" />
   <arg name="gui"        default="true" />
-  <arg name="world"      default="mock_lab" /> <!-- "new_format_empty" /> -->
+  <arg name="world"      default="new_format_empty" /> <!-- mock_lab "new_format_empty" /> -->
   <arg name="world_path" default="$(find euler_gazebo)/worlds" /> 
   <arg name="gravity"    default="true" />
   <arg name="debug"      default="false" />
