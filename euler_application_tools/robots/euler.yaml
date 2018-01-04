@@ -1,0 +1,15 @@
+robot_name: euler
+planner_type: tracik_planner::TracIKPlanner
+config_package: euler_support
+config_file: config/euler.srdf
+frame_id: base_link
+root_offset: [0, 0, 0, 0, 0, 0]
+end_effector_group_map:
+  - name: gripper
+    id: 0
+    pose_offset: [0,0,-0.268,0,-1.5708,0]
+    tool_offset: [0,0,0,0,0,0]
+end_effector_pose_map:
+  - name: Default
+    group: gripper
+    id: 0

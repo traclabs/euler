@@ -73,7 +73,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
-				<mesh filename="package://euler_support/meshes/collision/frame_top.stl" />
+				<mesh filename="package://euler_support/meshes/visual/frame_top.stl" /> <!-- The collision frame_top is oversized! Change -->
 			</geometry>
 		</collision>
 		<inertial>

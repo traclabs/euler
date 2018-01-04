@@ -37,7 +37,8 @@
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
-    <gazebo_ros plugin_path="${prefix}/lib" gazebo_media_path="${prefix}" />
+    <gazebo_ros plugin_path="${prefix}/lib"  media_path="/usr/share/gazebo-7/media" /> <!-- gazebo_media_path="${prefix}" -->
+      <!-- /materials/scripts/gazebo.material -->
   </export>
 
 </package>

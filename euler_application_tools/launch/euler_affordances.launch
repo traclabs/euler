@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <arg name="sim" default="true"/>
+
+  <!-- The name of the parameter under which the URDF is loaded -->
+  <arg name="robot_description" default="robot_description"/>
+  
+  <rosparam param="cached_trajectories">false</rosparam>
+  <rosparam command="load" file="$(find interactive_controls)/config/default_tolerances.yaml" />
+
+  <!-- The semantic description that corresponds to the URDF: This should already be set in the planner_node launch file -->
+  
+  <node name="affordance_template_server" pkg="affordance_template_server" type="affordance_template_server" respawn="false" output="screen">
+    <param name="planner_name" value="planner_node"/>
+    <param name="affordance_template_library" value="euler_application_tools" />
+    <param name="robot_config" value="euler.yaml"/>
+    <param name="limits_param" value="/joint_limits"/>
+    <param name="scale_ee_speed" value="false"/>
+    <!-- <param name="param/execution_speed_scalar" value="1.0"/>-->
+  </node>
+
+</launch>
