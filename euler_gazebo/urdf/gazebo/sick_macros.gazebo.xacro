@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="sick_macros_gazebo" >
 
-  <xacro:macro name="sick_s300_gazebo" params="link topic_name">
+  <!-- Datasheet SICK S300: https://www.sick.com/media/pdf/6/46/846/dataSheet_S30B-3011GB_1057641_en.pdf -->
+  <xacro:macro name="sick_s300_gazebo" params="link topic_name visualize:=false">
 
     <gazebo reference="${link}">
       <sensor type="ray" name="${link}_sensor">
         <pose>0 0 0 0 0 0</pose>
-        <visualize>false</visualize>
+        <visualize>${visualize}</visualize>
         <update_rate>12.5</update_rate> <!-- Response time 80ms -->
         <ray>
           <scan>
@@ -33,13 +34,13 @@
     </gazebo>
   </xacro:macro>
 
-  <!-- Laser Scanner NAV350 Indoor Mid Range -->
-  <xacro:macro name="sick_nav350_gazebo" params="link topic_name">
+  <!-- Datasheet NAV350 Indoor Mid Range: https://sick-virginia.data.continum.net/media/pdf/1/41/041/dataSheet_NAV350-3232_1052928_en.pdf -->
+  <xacro:macro name="sick_nav350_gazebo" params="link topic_name visualize:=false">
 
     <gazebo reference="${link}">
       <sensor type="ray" name="${link}_sensor">
         <pose>0 0 0 0 0 0</pose>
-        <visualize>false</visualize>
+        <visualize>${visualize}</visualize>
         <update_rate>8.0</update_rate> <!-- 8Hz -->
         <ray>
           <scan>
