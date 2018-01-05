@@ -34,7 +34,7 @@
 
 
   <joint name="${sensor_name}_depth_joint" type="fixed">
-    <origin xyz="0.049 0 0" rpy="-1.5708 0 -1.5708" />
+    <origin xyz="0 -0.049 0" rpy="-1.5708 0 -1.5708" />
     <parent link="${sensor_name}_bodycenter" />
     <child link="${sensor_name}_depth_frame" />
   </joint>
@@ -42,7 +42,7 @@
   <link name="${sensor_name}_depth_frame" />
 
   <joint name="${sensor_name}_rgb_joint" type="fixed">
-    <origin xyz="0.022 0 0" rpy="-1.5708 0 -1.5708" />
+    <origin xyz="0 -0.022 0" rpy="-1.5708 0 -1.5708" />
     <parent link="${sensor_name}_bodycenter" />
     <child link="${sensor_name}_rgb_frame" />
   </joint>
