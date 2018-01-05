@@ -13,7 +13,6 @@
         <chain base_link="motoman_base_link" tip_link="motoman_link_t" />
     </group>
 
-
     <group_state name="Zero" group="arm">
       <joint name="motoman_joint_s" value="0" />
       <joint name="motoman_joint_l" value="0" />
@@ -46,6 +45,10 @@
         <link name="tcp"/>
     </group>
 
+    <group_state name="Default" group="gripper">
+    </group_state>
+
+    
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="gripper_ee" parent_link="motoman_link_t" group="gripper" parent_group="arm" />
 

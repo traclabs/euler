@@ -22,6 +22,15 @@ namespace gazebo {
       ROS_FATAL_STREAM("EulerPathFollowerPlugin: not initialized, unable to load");
       return;
     }
+
+    m_xyz.x = 0.0;
+    m_xyz.y = 0.0;
+    m_xyz.z = 0.0;
+
+    m_rpy.x = 0.0;
+    m_rpy.y = 0.0;
+    m_rpy.z = 0.0;
+
   }
   
   // Called by the world update start event
@@ -77,12 +86,32 @@ namespace gazebo {
     ROS_INFO("EulerPathFollowerPlugin: finished loading...");
   }
   
+
   void EulerPathFollowerPlugin::OnUpdate(const common::UpdateInfo &info) {
-    ros::Time curTime = getWorldTime();
-    ros::Duration elapsed = curTime - m_lastUpdateTime;
-    if (elapsed.toSec() > m_updatePeriod) {
-      elapsed = curTime - m_lastCmdVelTime;
-      ROS_WARN_THROTTLE(1, "EulerPathFollowerPlugin() -- updating");
+    
+    m_currentTime = getWorldTime();
+    ros::Duration elapsed = m_currentTime - m_lastUpdateTime;
+    double thresh_vel_z = 0.001;
+    double dt = elapsed.toSec();
+
+    if (dt > m_updatePeriod) {
+
+    
+      m_xyz.x += (m_velMsg.linear.x + m_velMsg.linear.x*cos(m_rpy.z))*dt;
+      m_xyz.y += (m_velMsg.linear.y + m_velMsg.linear.x*sin(m_rpy.z))*dt;
+      if( fabs(m_velMsg.linear.z) > thresh_vel_z ) {
+        m_xyz.z += m_velMsg.linear.z*dt;
+      }
+      m_rpy.z += m_velMsg.angular.z*dt;
+    
+      // make a pose msg so we can set the gazebo model
+      m_pose.Set(m_xyz.x, m_xyz.y, m_xyz.z, m_rpy.x, m_rpy.y, m_rpy.z);
+
+      m_model->SetWorldPose(m_pose, true, true);
+
+      ROS_WARN_THROTTLE(1, "EulerPathFollowerPlugin() -- updating: [%.3f, %.3f, %.3f], [%.3f, %.3f, %.3f]", 
+        m_xyz.x, m_xyz.y, m_xyz.z, m_rpy.x, m_rpy.y, m_rpy.z);
+    
       // if (elapsed.toSec() > m_engageTimeout && !m_engaged) {
       //   ROS_WARN("EulerPathFollowerPlugin: velocity timeout, engaging!");
       //   m_pose = m_model->GetWorldPose();
@@ -98,30 +127,21 @@ namespace gazebo {
       //   ROS_DEBUG_THROTTLE(2, "EulerPathFollowerPlugin: %s pose is (%f, %f, %f) (%f, %f, %f, %f)",
       //            m_modelName.c_str(), pose.pos.x, pose.pos.y, pose.pos.z, pose.rot.x, pose.rot.y, pose.rot.z, pose.rot.w);
       // }
-      m_lastUpdateTime = curTime;
+      m_lastUpdateTime = m_currentTime;
     }
+
+    
+    // tf_base.setOrigin( tf::Vector3(m_xyz.x, m_xyz.y, m_xyz.z) );
+
+
   }
-  
-  void EulerPathFollowerPlugin::cmdVelCb(const geometry_msgs::Twist::ConstPtr &msg) {
-    // TODO: mutex, not sure if messages are received as part of
-    // gazebo update or not, but velocity is only changed via message,
-    // so mutex brake engagement on message check
-    // if (within(msg->linear.x, 0.0, m_threshTvel) &&
-    //     within(msg->angular.z, 0.0, m_threshRvel)) {
-    //   if (!m_engaged) {
-    //     ROS_INFO("EulerPathFollowerPlugin: 0 velocities, re-engaging %s brake", m_modelName.c_str());
-    //     m_engaged = true;
-    //     m_pose = m_model->GetWorldPose();
-    //   }
-    // } else {
-    //   if (m_engaged) {
-    //     ROS_INFO("EulerPathFollowerPlugin: disengaging %s brake",
-    //              m_modelName.c_str());
-    //   }
-    //   m_engaged = false;
-    // }
+
+  void EulerPathFollowerPlugin::cmdVelCb( const geometry_msgs::Twist::ConstPtr &_msg ) {
+    m_velMsg = *_msg;
     m_lastCmdVelTime = getWorldTime();
   }
+
+
   
   // using this for debug; maybe useful to have?
   //bool EulerPathFollowerPlugin::toggleBrakeCb(std_srvs::Empty::Request &req,

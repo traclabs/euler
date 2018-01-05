@@ -1,0 +1,592 @@
+{
+  "name": "PickAndPlace",
+  "image": "package://euler_application_tools/images/pickup.png",
+  "display_objects": [
+    {
+      "name": "pick",
+      "shape": {
+        "type": "box",
+        "material": {
+          "color": "red",
+          "rgba": [
+            1.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "size": [
+          0.1,
+          0.1,
+          0.1
+        ]
+      },
+      "origin": {
+        "xyz": [
+          0.6720634698867798,
+          0.0007415097206830978,
+          0.7318669557571411
+        ],
+        "rpy": [
+          -3.1529976802182017e-8,
+          2.3917244667309994e-8,
+          -0.011693782834638508
+        ]
+      },
+      "controls": {
+        "xyz": [
+          true,
+          true,
+          true
+        ],
+        "rpy": [
+          true,
+          true,
+          true
+        ],
+        "scale": 0.3
+      }
+    },
+    {
+      "name": "place",
+      "parent": "pick",
+      "shape": {
+        "type": "box",
+        "material": {
+          "color": "blue",
+          "rgba": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ]
+        },
+        "size": [
+          0.1,
+          0.1,
+          0.1
+        ]
+      },
+      "origin": {
+        "xyz": [
+          -1.1610163450241089,
+          -0.0664006844162941,
+          0.14486904442310334
+        ],
+        "rpy": [
+          3.217458585245825e-8,
+          -2.8211412968628065e-9,
+          0.0470356476785882
+        ]
+      },
+      "controls": {
+        "xyz": [
+          true,
+          true,
+          true
+        ],
+        "rpy": [
+          true,
+          true,
+          true
+        ],
+        "scale": 0.3
+      }
+    }
+  ],
+  "end_effector_trajectory": [
+    {
+      "name": "Default Pick and Place",
+      "end_effector_group": [
+        {
+          "id": 0,
+          "end_effector_waypoint": [
+            {
+              "ee_pose": 0,
+              "display_object": "pick",
+              "origin": {
+                "xyz": [
+                  -0.1571151316165924,
+                  0.012050976976752282,
+                  0.3670420646667481
+                ],
+                "rpy": [
+                  2.956434069140136,
+                  -1.4759426524644346,
+                  0.1877492151774934
+                ]
+              },
+              "controls": {
+                "xyz": [
+                  true,
+                  true,
+                  true
+                ],
+                "rpy": [
+                  true,
+                  true,
+                  true
+                ],
+                "scale": 0.25
+              },
+              "tool_offset": {
+                "xyz": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "rpy": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "tolerances": {
+                "x": [
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0
+                ],
+                "z": [
+                  0.0,
+                  0.0
+                ],
+                "R": [
+                  0.0,
+                  0.0
+                ],
+                "P": [
+                  0.0,
+                  0.0
+                ],
+                "Y": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "conditioning_metric": "MIN_DISTANCE",
+              "planner_type": "JOINT"
+            },
+            {
+              "ee_pose": 0,
+              "display_object": "pick",
+              "origin": {
+                "xyz": [
+                  -0.01556195318698883,
+                  -0.007755257189273834,
+                  0.22564145922660829
+                ],
+                "rpy": [
+                  -3.0846797993129826,
+                  -1.0324363911241437,
+                  -0.05007779804905991
+                ]
+              },
+              "controls": {
+                "xyz": [
+                  true,
+                  true,
+                  true
+                ],
+                "rpy": [
+                  true,
+                  true,
+                  true
+                ],
+                "scale": 0.25
+              },
+              "tool_offset": {
+                "xyz": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "rpy": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "tolerances": {
+                "x": [
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0
+                ],
+                "z": [
+                  0.0,
+                  0.0
+                ],
+                "R": [
+                  0.0,
+                  0.0
+                ],
+                "P": [
+                  0.0,
+                  0.0
+                ],
+                "Y": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "conditioning_metric": "MIN_DISTANCE",
+              "planner_type": "JOINT"
+            },
+            {
+              "ee_pose": 0,
+              "display_object": "pick",
+              "origin": {
+                "xyz": [
+                  0.005102000199258328,
+                  0.003074209205806256,
+                  0.06159979850053787
+                ],
+                "rpy": [
+                  3.132524842474666,
+                  -0.03132301372213794,
+                  0.04363579306850011
+                ]
+              },
+              "controls": {
+                "xyz": [
+                  true,
+                  true,
+                  true
+                ],
+                "rpy": [
+                  true,
+                  true,
+                  true
+                ],
+                "scale": 0.25
+              },
+              "tool_offset": {
+                "xyz": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "rpy": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "tolerances": {
+                "x": [
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0
+                ],
+                "z": [
+                  0.0,
+                  0.0
+                ],
+                "R": [
+                  0.0,
+                  0.0
+                ],
+                "P": [
+                  0.0,
+                  0.0
+                ],
+                "Y": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "conditioning_metric": "MIN_DISTANCE",
+              "planner_type": "JOINT"
+            },
+            {
+              "ee_pose": 0,
+              "display_object": "pick",
+              "origin": {
+                "xyz": [
+                  -0.48009833693504336,
+                  -0.04574910923838616,
+                  0.11646319925785064
+                ],
+                "rpy": [
+                  -3.098888902881566,
+                  -0.02981723584197488,
+                  0.0324561927464879
+                ]
+              },
+              "controls": {
+                "xyz": [
+                  true,
+                  true,
+                  true
+                ],
+                "rpy": [
+                  true,
+                  true,
+                  true
+                ],
+                "scale": 0.25
+              },
+              "tool_offset": {
+                "xyz": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "rpy": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "tolerances": {
+                "x": [
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0
+                ],
+                "z": [
+                  0.0,
+                  0.0
+                ],
+                "R": [
+                  0.0,
+                  0.0
+                ],
+                "P": [
+                  0.0,
+                  0.0
+                ],
+                "Y": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "conditioning_metric": "MIN_DISTANCE",
+              "planner_type": "JOINT"
+            },
+            {
+              "ee_pose": 0,
+              "display_object": "place",
+              "origin": {
+                "xyz": [
+                  0.05843079835176468,
+                  -0.0037448888178914787,
+                  0.427182674407959
+                ],
+                "rpy": [
+                  -3.1337178531093765,
+                  -0.012827349339649856,
+                  -0.016330970463814585
+                ]
+              },
+              "controls": {
+                "xyz": [
+                  true,
+                  true,
+                  true
+                ],
+                "rpy": [
+                  true,
+                  true,
+                  true
+                ],
+                "scale": 0.25
+              },
+              "tool_offset": {
+                "xyz": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "rpy": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "tolerances": {
+                "x": [
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0
+                ],
+                "z": [
+                  0.0,
+                  0.0
+                ],
+                "R": [
+                  0.0,
+                  0.0
+                ],
+                "P": [
+                  0.0,
+                  0.0
+                ],
+                "Y": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "conditioning_metric": "MIN_DISTANCE",
+              "planner_type": "JOINT"
+            },
+            {
+              "ee_pose": 0,
+              "display_object": "place",
+              "origin": {
+                "xyz": [
+                  -0.09377020597457886,
+                  -0.004552767146378756,
+                  0.4169939160346985
+                ],
+                "rpy": [
+                  -3.120723634879828,
+                  -0.03684614570089641,
+                  -0.014716232697717909
+                ]
+              },
+              "controls": {
+                "xyz": [
+                  true,
+                  true,
+                  true
+                ],
+                "rpy": [
+                  true,
+                  true,
+                  true
+                ],
+                "scale": 0.25
+              },
+              "tool_offset": {
+                "xyz": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "rpy": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "tolerances": {
+                "x": [
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0
+                ],
+                "z": [
+                  0.0,
+                  0.0
+                ],
+                "R": [
+                  0.0,
+                  0.0
+                ],
+                "P": [
+                  0.0,
+                  0.0
+                ],
+                "Y": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "conditioning_metric": "MIN_DISTANCE",
+              "planner_type": "CARTESIAN"
+            },
+            {
+              "ee_pose": 0,
+              "display_object": "place",
+              "origin": {
+                "xyz": [
+                  -0.08632861077785492,
+                  -0.0024403068237006666,
+                  0.2690640389919281
+                ],
+                "rpy": [
+                  -3.120737312239637,
+                  0.006817963393384165,
+                  -0.013805137525095962
+                ]
+              },
+              "controls": {
+                "xyz": [
+                  true,
+                  true,
+                  true
+                ],
+                "rpy": [
+                  true,
+                  true,
+                  true
+                ],
+                "scale": 0.25
+              },
+              "tool_offset": {
+                "xyz": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "rpy": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              "tolerances": {
+                "x": [
+                  0.0,
+                  0.0
+                ],
+                "y": [
+                  0.0,
+                  0.0
+                ],
+                "z": [
+                  0.0,
+                  0.0
+                ],
+                "R": [
+                  0.0,
+                  0.0
+                ],
+                "P": [
+                  0.0,
+                  0.0
+                ],
+                "Y": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "conditioning_metric": "MIN_DISTANCE",
+              "planner_type": "JOINT"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

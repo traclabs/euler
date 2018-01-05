@@ -4,14 +4,20 @@
 #ifndef EULER_PATH_FOLLOWER_HPP
 #define EULER_PATH_FOLLOWER_HPP
 
-#include <tf/tf.h>
 #include <ros/ros.h>
-#include <geometry_msgs/Twist.h>
-#include <std_srvs/Empty.h>
 
+// #include <tf/tf.h>
+ 
 #include <gazebo/gazebo.hh>
 #include <gazebo/physics/physics.hh>
 #include <gazebo/common/common.hh>
+
+#include <geometry_msgs/Twist.h>
+#include <geometry_msgs/Vector3.h>
+
+#include <std_srvs/Empty.h>
+
+
 #include <math.h>
 
 namespace gazebo {
@@ -29,19 +35,25 @@ namespace gazebo {
 		physics::WorldPtr m_world;
 		sdf::ElementPtr m_sdf;
 		event::ConnectionPtr m_updateConnection;
-		ros::Time m_lastUpdateTime, m_lastCmdVelTime;
+		ros::Time m_lastUpdateTime, m_lastCmdVelTime, m_currentTime;
 		double m_updatePeriod;
 		// double m_engageTimeout;
+
+		geometry_msgs::Twist m_velMsg;
 		
 		// tracbot data
 		std::string m_modelName;
 		physics::ModelPtr m_model;
+
 		// double m_threshTvel;
 		// double m_threshRvel;
 		bool m_engaged;
 		math::Pose m_pose;
+
 		ros::Subscriber m_velSub;
-		// used this for debug; maybe useful to have?
+
+		geometry_msgs::Vector3 m_xyz, m_rpy;
+
 		//ros::ServiceServer m_toggleBrakeSrv;
 		
 		void cmdVelCb(const geometry_msgs::Twist::ConstPtr &msg);
