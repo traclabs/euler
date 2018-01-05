@@ -8,7 +8,7 @@
   <xacro:include filename="$(find euler_gazebo)/urdf/gazebo/sick_macros.gazebo.xacro" /> 
 
   <!-- Front sensor SICK S300 -->
-  <sick_s300_gazebo link="front_sick_s300" topic_name="front_sick_s300" visualize="true" />
+  <sick_s300_gazebo link="front_sick_s300" topic_name="front_sick_s300" />
   <!-- Rear sensor SICK S300 -->
   <sick_s300_gazebo link="rear_sick_s300" topic_name="rear_sick_s300" />
   <!-- Front, high-res sensor SICK Nav350 -->
