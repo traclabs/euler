@@ -49,7 +49,7 @@
   <rosparam file="$(find euler_gazebo)/config/controllers/euler_gazebo_generic_traj_control.yaml" command="load"/>
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" ns="euler" args=" mobile_base_controller arm_controller joint_state_controller" />
+    output="screen" ns="euler" args=" arm_controller joint_state_controller" /> <!-- mobile_base_controller -->
 
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
@@ -62,12 +62,20 @@
 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find euler_support)/config/euler_craftsman.rviz" required="true" />
 
-  <node name="model_states_converter" pkg="tracbot_gazebo" type="model_states_converter" >
+<!--  <node name="model_states_converter" pkg="tracbot_gazebo" type="model_states_converter" >
    <param name="model_name" value="euler"/>
    <param name="tf_base_frame" value="base_link"/>
    <param name="tf_publish_frame" value="perfect_odom"/>   
    <param name="tf_odom_frame" value="odom"/>
+  </node> -->
+
+  <node name="object_model_to_tf" pkg="tracbot_gazebo" type="object_model_to_tf" >
+   <param name="model_name" value="euler"/>
+   <param name="tf_base_frame" value="base_link"/>
+   <param name="tf_publish_frame" value="perfect_odom"/>   
+   <param name="model_states_topic" value="/gazebo/model_states"/>
   </node>
+
 
   <!-- <node pkg="tf" type="static_transform_publisher" name="bl_broadcaster" args="0 0 0 0 0 0 world base_link 100" /> -->
   <node pkg="tf" type="static_transform_publisher" name="bl_broadcaster" args="0 0 0 0 0 0 map perfect_odom 100" /> 

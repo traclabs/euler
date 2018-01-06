@@ -89,16 +89,26 @@ namespace gazebo {
 
   void EulerPathFollowerPlugin::OnUpdate(const common::UpdateInfo &info) {
     
+
+
+  }
+
+  void EulerPathFollowerPlugin::cmdVelCb( const geometry_msgs::Twist::ConstPtr &_msg ) {
+    m_velMsg = *_msg;
+    //m_lastCmdVelTime = getWorldTime();
+
+    ///////////////////////////////////////////////////////////////////
     m_currentTime = getWorldTime();
     ros::Duration elapsed = m_currentTime - m_lastUpdateTime;
     double thresh_vel_z = 0.001;
     double dt = elapsed.toSec();
 
+    if( dt > 1.0 ) { m_lastUpdateTime = m_currentTime; return; }
     if (dt > m_updatePeriod) {
 
-    
-      m_xyz.x += (m_velMsg.linear.x + m_velMsg.linear.x*cos(m_rpy.z))*dt;
-      m_xyz.y += (m_velMsg.linear.y + m_velMsg.linear.x*sin(m_rpy.z))*dt;
+      //m_velMsg.linear.x + m_velMsg.linear.y +   
+      m_xyz.x += (m_velMsg.linear.x*cos(m_rpy.z))*dt;
+      m_xyz.y += (m_velMsg.linear.x*sin(m_rpy.z))*dt;
       if( fabs(m_velMsg.linear.z) > thresh_vel_z ) {
         m_xyz.z += m_velMsg.linear.z*dt;
       }
@@ -133,12 +143,9 @@ namespace gazebo {
     
     // tf_base.setOrigin( tf::Vector3(m_xyz.x, m_xyz.y, m_xyz.z) );
 
+    ///////////////////////////////////////////////////////////////////
 
-  }
 
-  void EulerPathFollowerPlugin::cmdVelCb( const geometry_msgs::Twist::ConstPtr &_msg ) {
-    m_velMsg = *_msg;
-    m_lastCmdVelTime = getWorldTime();
   }
 
 

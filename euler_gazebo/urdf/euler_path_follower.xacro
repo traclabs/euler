@@ -18,8 +18,7 @@
     <gazebo reference="euler_path_follower">
       <material>Gazebo/Gray</material>
     </gazebo>
-  </macro>
-
+  
   <gazebo>
     <plugin name="euler_path_follower_plugin" filename="libeuler_path_follower.so">
       <update_period>0.01</update_period>
@@ -27,7 +26,11 @@
     </plugin>
   </gazebo>
 
+  </macro>
+
+
+
   <!-- move instances to world file? -->
-  <euler_path_follower/> 
+  <euler_path_follower/>
 
 </robot>
