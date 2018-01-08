@@ -81,7 +81,7 @@ namespace gazebo {
     if((elapsed.toSec() > m_engageBrakeTime) && m_brakeEngaged) {
       m_pose = m_model->GetWorldPose();
       m_model->SetWorldPose(m_pose, true, true);     
-      ROS_WARN_THROTTLE(1, "Brake Engaged");
+      // ROS_WARN_THROTTLE(1, "Brake Engaged");
 
       m_xyz.x = m_pose.pos.x;
       m_xyz.y = m_pose.pos.y;
