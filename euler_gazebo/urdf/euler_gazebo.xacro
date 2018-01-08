@@ -8,13 +8,21 @@
   <xacro:include filename="$(find euler_gazebo)/urdf/euler_path_follower.xacro"/> 
 
   <xacro:include filename="$(find euler_gazebo)/urdf/gazebo/sick_macros.gazebo.xacro" /> 
+  <xacro:include filename="$(find euler_gazebo)/urdf/gazebo/asus_xtion_macro.gazebo.xacro" /> 
 
   <!-- Front sensor SICK S300 -->
-  <sick_s300_gazebo link="front_sick_s300" topic_name="front_sick_s300" />
+  <!--<sick_s300_gazebo link="front_sick_s300" topic_name="front_sick_s300" />-->
   <!-- Rear sensor SICK S300 -->
-  <sick_s300_gazebo link="rear_sick_s300" topic_name="rear_sick_s300" />
+  <!--<sick_s300_gazebo link="rear_sick_s300" topic_name="rear_sick_s300" />-->
   <!-- Front, high-res sensor SICK Nav350 -->
-  <sick_nav350_gazebo link="sick_nav350" topic_name="sick_nav350" />
+  <!--<sick_nav350_gazebo link="sick_nav350" topic_name="sick_nav350" />-->
+
+  <!-- Asus Xtion -->
+  <asus_xtion_gazebo parent_link="asus_bodycenter" topic_name="asus" depth_frame="asus_depth_frame" />
+
+  <gazebo reference="asus_bodycenter">
+    <material>Gazebo/Black</material>
+  </gazebo>
 
 
   <gazebo reference="frame_left">

@@ -10,7 +10,7 @@
 	
 	<xacro:vetex prefix="vetex_" />
 	<xacro:motoman_mh5lf prefix="motoman_" /> 
-	<!-- <xacro:asus_xtion_pro sensor_name="" off_x="0.461" off_y="0" off_z="2.103" off_rr="1.5708" off_rp="1.8849" off_ry="0"/>        -->
+	<xacro:asus_xtion_pro sensor_name="asus" off_x="0.461" off_y="0" off_z="2.103" off_rr="0" off_rp="0.31" off_ry="0"/> <!-- 1.5708 1.8849-->      
 	<xacro:eef prefix=""/>         
 	
 	<!--link list -->

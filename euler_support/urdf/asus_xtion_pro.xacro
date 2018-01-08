@@ -9,12 +9,12 @@
 
   <link name="${sensor_name}_bodycenter">
     <visual>
-      <origin xyz="0 0 0 " rpy="0 0 0" />
+      <origin xyz="0 0 0 " rpy="-1.5708 0 -1.5708" />
       <geometry>
         <mesh filename="package://euler_support/meshes/visual/asus_sensor.stl"/>
       </geometry>
       <material name="lt_black">
-        <color rgba="0.3 0.3 0.3 1"/>
+        <color rgba="0.1 0.1 0.1 1"/>
       </material>
     </visual>
 
@@ -34,7 +34,7 @@
 
 
   <joint name="${sensor_name}_depth_joint" type="fixed">
-    <origin xyz="0.049 0 0" rpy="0 0 0" />
+    <origin xyz="0 -0.049 0" rpy="-1.5708 0 -1.5708" />
     <parent link="${sensor_name}_bodycenter" />
     <child link="${sensor_name}_depth_frame" />
   </joint>
@@ -42,7 +42,7 @@
   <link name="${sensor_name}_depth_frame" />
 
   <joint name="${sensor_name}_rgb_joint" type="fixed">
-    <origin xyz="0.022 0 0" rpy="0 0 0" />
+    <origin xyz="0 -0.022 0" rpy="-1.5708 0 -1.5708" />
     <parent link="${sensor_name}_bodycenter" />
     <child link="${sensor_name}_rgb_frame" />
   </joint>
