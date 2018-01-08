@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+
+<include file="$(find euler_support)/launch/euler_gazebo.launch">
+  <arg name="world" value="mock_lab" />
+</include>
+
+<include file="$(find navigation_interface)/launch/navigation_demo_euler_gazebo.launch">
+  <arg name="nav_waypoints" value="true" />
+</include>
+
+<include file="$(find interactive_controls)/launch/euler_planner_node.launch">
+  <arg name="sim" value="false" />
+</include>
+
+<include file="$(find interactive_controls)/launch/euler.launch"/>
+
+<include file="$(find euler_application_tools)/launch/euler_affordances.launch"/>
+
+</launch>
+  

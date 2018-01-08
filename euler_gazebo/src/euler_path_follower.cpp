@@ -11,28 +11,27 @@ namespace gazebo {
       : ModelPlugin()
       , m_world(NULL)
       , m_updatePeriod(0.01)
-      // , m_engageTimeout(1.0)
+      , m_brakeEngaged(true)
+      , m_engageBrakeTime(0.2)
       , m_modelName("euler")
       , m_model(NULL)
-      // , m_threshTvel(0.001)
-      // , m_threshRvel(0.01)
-      // , m_engaged(true)
   {
+    
     if (!ros::isInitialized()) {
       ROS_FATAL_STREAM("EulerPathFollowerPlugin: not initialized, unable to load");
       return;
     }
-
+    
     m_xyz.x = 0.0;
     m_xyz.y = 0.0;
     m_xyz.z = 0.0;
-
     m_rpy.x = 0.0;
     m_rpy.y = 0.0;
     m_rpy.z = 0.0;
 
   }
   
+
   // Called by the world update start event
   void EulerPathFollowerPlugin::Load(physics::ModelPtr parent, sdf::ElementPtr sdf) {
     ROS_INFO("EulerPathFollowerPlugin: begin loading...");
@@ -44,22 +43,6 @@ namespace gazebo {
     } else {
      ROS_WARN("EulerPathFollowerPlugin::Load:: no update specified; default %f", m_updatePeriod);
     }
-
-    // if (this->m_sdf->HasElement("id")) {
-  //      m_modelName = this->m_sdf->Get<std::string>("id");
-    // } else {
-    //  ROS_WARN("EulerPathFollowerPlugin::Load:: no ID specified; default %s", m_modelName.c_str());
-    // }
-    // if (this->m_sdf->HasElement("thresh_vel_trans")) {
-  //      m_threshTvel = this->m_sdf->Get<double>("thresh_vel_trans");
-    // } else {
-    //  ROS_WARN("EulerPathFollowerPlugin::Load:: no v threshold specified; default %f", m_threshTvel);
-    // }
-    // if (this->m_sdf->HasElement("thresh_vel_rot")) {
-  //      m_threshRvel = this->m_sdf->Get<double>("thresh_vel_rot");
-    // } else {
-    //  ROS_WARN("EulerPathFollowerPlugin::Load:: no omega threshold specified; default %f", m_threshRvel);
-    // }
 
     std::string cmdVelTopic("/cmd_vel");
     if (this->m_sdf->HasElement("cmd_vel_topic")) {
@@ -83,19 +66,38 @@ namespace gazebo {
     m_lastUpdateTime = getWorldTime();
     m_lastCmdVelTime = m_lastUpdateTime;
     this->m_updateConnection = event::Events::ConnectWorldUpdateBegin(boost::bind(&EulerPathFollowerPlugin::OnUpdate, this, _1));
+
+    m_toggleBrakeSrv = nh.advertiseService("toggle_brake", &EulerPathFollowerPlugin::toggleBrakeCb, this);
+
     ROS_INFO("EulerPathFollowerPlugin: finished loading...");
   }
   
 
   void EulerPathFollowerPlugin::OnUpdate(const common::UpdateInfo &info) {
     
+    ros::Time now = getWorldTime();
+    ros::Duration elapsed = now - m_lastUpdateTime;
 
+    if((elapsed.toSec() > m_engageBrakeTime) && m_brakeEngaged) {
+      m_pose = m_model->GetWorldPose();
+      m_model->SetWorldPose(m_pose, true, true);     
+      ROS_WARN_THROTTLE(1, "Brake Engaged");
+
+      m_xyz.x = m_pose.pos.x;
+      m_xyz.y = m_pose.pos.y;
+      m_xyz.z = m_pose.pos.z;
+      m_rpy.x = m_pose.rot.GetRoll();
+      m_rpy.y = m_pose.rot.GetPitch();
+      m_rpy.z = m_pose.rot.GetYaw();
+
+    }
 
   }
 
   void EulerPathFollowerPlugin::cmdVelCb( const geometry_msgs::Twist::ConstPtr &_msg ) {
     m_velMsg = *_msg;
-    //m_lastCmdVelTime = getWorldTime();
+
+    m_brakeEngaged = false;
 
     ///////////////////////////////////////////////////////////////////
     m_currentTime = getWorldTime();
@@ -122,13 +124,13 @@ namespace gazebo {
       ROS_WARN_THROTTLE(1, "EulerPathFollowerPlugin() -- updating: [%.3f, %.3f, %.3f], [%.3f, %.3f, %.3f]", 
         m_xyz.x, m_xyz.y, m_xyz.z, m_rpy.x, m_rpy.y, m_rpy.z);
     
-      // if (elapsed.toSec() > m_engageTimeout && !m_engaged) {
+      // if (elapsed.toSec() > m_engageTimeout && !m_brakeEngaged) {
       //   ROS_WARN("EulerPathFollowerPlugin: velocity timeout, engaging!");
       //   m_pose = m_model->GetWorldPose();
-      //   m_engaged = true;
+      //   m_brakeEngaged = true;
       // }
       // // TODO: mutex
-      // if (m_engaged) {
+      // if (m_brakeEngaged) {
       //   ROS_DEBUG_THROTTLE(2, "EulerPathFollowerPlugin: %s set pose to (%f, %f, %f) (%f, %f, %f, %f)",
       //            m_modelName.c_str(), m_pose.pos.x, m_pose.pos.y, m_pose.pos.z, m_pose.rot.x, m_pose.rot.y, m_pose.rot.z, m_pose.rot.w);
       //   m_model->SetWorldPose(m_pose, true, true);
@@ -140,25 +142,15 @@ namespace gazebo {
       m_lastUpdateTime = m_currentTime;
     }
 
-    
-    // tf_base.setOrigin( tf::Vector3(m_xyz.x, m_xyz.y, m_xyz.z) );
-
-    ///////////////////////////////////////////////////////////////////
-
-
   }
 
 
+  bool EulerPathFollowerPlugin::toggleBrakeCb(std_srvs::Empty::Request &req,
+                                      std_srvs::Empty::Response &rsp) {
+    m_brakeEngaged = !m_brakeEngaged;
+    return m_brakeEngaged;
+  }
   
-  // using this for debug; maybe useful to have?
-  //bool EulerPathFollowerPlugin::toggleBrakeCb(std_srvs::Empty::Request &req,
-  //                                     std_srvs::Empty::Response &rsp) {
-  //  m_engaged = !m_engaged;
-  //}
-  
-  // bool EulerPathFollowerPlugin::within(double val, double set, double thresh) {
-  //   return (fabs(set - val) < thresh) && (fabs(val - set) < thresh);
-  // }
   
   ros::Time EulerPathFollowerPlugin::getWorldTime() {
     if (this->m_world == NULL) return ros::Time(0);

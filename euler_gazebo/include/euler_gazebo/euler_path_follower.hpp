@@ -36,8 +36,7 @@ namespace gazebo {
 		sdf::ElementPtr m_sdf;
 		event::ConnectionPtr m_updateConnection;
 		ros::Time m_lastUpdateTime, m_lastCmdVelTime, m_currentTime;
-		double m_updatePeriod;
-		// double m_engageTimeout;
+		double m_updatePeriod, m_engageBrakeTime;
 
 		geometry_msgs::Twist m_velMsg;
 		
@@ -45,21 +44,17 @@ namespace gazebo {
 		std::string m_modelName;
 		physics::ModelPtr m_model;
 
-		// double m_threshTvel;
-		// double m_threshRvel;
-		bool m_engaged;
+		bool m_brakeEngaged;
 		math::Pose m_pose;
 
 		ros::Subscriber m_velSub;
-
 		geometry_msgs::Vector3 m_xyz, m_rpy;
 
-		//ros::ServiceServer m_toggleBrakeSrv;
+		ros::ServiceServer m_toggleBrakeSrv;
 		
 		void cmdVelCb(const geometry_msgs::Twist::ConstPtr &msg);
-		// bool toggleBrakeCb(std_srvs::Empty::Request &req,
-		//                    std_srvs::Empty::Response &rsp);
-		// bool within(double val, double set, double thresh);
+		bool toggleBrakeCb(std_srvs::Empty::Request &req, std_srvs::Empty::Response &rsp);
+
 		ros::Time getWorldTime();
 	};
 }
